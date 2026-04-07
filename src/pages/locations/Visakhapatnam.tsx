@@ -1,13 +1,13 @@
 import LocationPage from "@/components/LocationPage";
 import heroBalcony from "@/assets/hero-balcony.jpg";
 
-const Vizag = () => (
+const Visakhapatnam = () => (
   <LocationPage
     city="Visakhapatnam"
     state="Andhra Pradesh"
-    slug="vizag"
+    slug="visakhapatnam"
     backgroundImage={heroBalcony}
-    description="Trusted invisible grills and safety nets installation services in Visakhapatnam (Vizag). Serving residential and commercial properties across the city with premium quality products."
+    description="Premium invisible grills installation services across Visakhapatnam. Expert solutions for residential and commercial properties in all major areas."
     areas={[
       "Beach Road", "MVP Colony", "Gajuwaka", "Seethammadhara", "Dwaraka Nagar", "Akkayyapalem",
       "Madhurawada", "Rushikonda", "Asilmetta", "Jagadamba", "Pendurthi", "NAD Junction",
@@ -15,4 +15,4 @@ const Vizag = () => (
   />
 );
 
-export default Vizag;
+export default Visakhapatnam;

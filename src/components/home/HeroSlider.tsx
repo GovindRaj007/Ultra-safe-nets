@@ -1,41 +1,35 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import heroBalcony from "@/assets/hero-balcony.jpg";
-import heroSafetyNet from "@/assets/hero-safety-net.jpg";
-import heroPigeonNet from "@/assets/hero-pigeon-net.jpg";
-import heroSportsNet from "@/assets/hero-sports-net.jpg";
-import heroCloseup from "@/assets/hero-closeup.jpg";
+import serviceBalconyGrills from "@/assets/service-balcony-grills.jpg";
+import serviceBalconyGrills2 from "@/assets/service-balcony-grills-2.jpg";
+import serviceWindowGrills2 from "@/assets/service-window-grills-2.jpg";
+import serviceHanger from "@/assets/service-hanger.jpg";
 
 const slides = [
   {
     image: heroBalcony,
     title: "Invisible Grills",
-    subtitle: "Stainless Steel Window Grills & Balcony Safety",
-    description: "Get child-safe, rust-proof stainless steel invisible grills installed by India's most trusted professionals.",
+    subtitle: "Premium Stainless Steel Protection",
+    description: "Get child-safe, rust-proof stainless steel invisible grills installed by experienced professionals across Andhra Pradesh.",
   },
   {
-    image: heroSafetyNet,
-    title: "Safety Nets",
-    subtitle: "Complete Building Protection Solutions",
-    description: "Protect your loved ones with our premium quality safety nets for balconies, windows, and terraces.",
+    image: serviceBalconyGrills2,
+    title: "Balcony Invisible Grills",
+    subtitle: "Panoramic Views with Complete Safety",
+    description: "Maintain your balcony's beauty while protecting your family. High-tensile SS316 cables ensure uncompromised safety and aesthetics.",
   },
   {
-    image: heroPigeonNet,
-    title: "Pigeon Nets",
-    subtitle: "Bird Control & Protection Solutions",
-    description: "Keep birds away with our durable anti-pigeon nets. Protect your balcony from bird droppings and nesting.",
+    image: serviceWindowGrills2,
+    title: "Window Invisible Grills",
+    subtitle: "Child-Safe Security Solution",
+    description: "Protect your home with our invisible window grills. Pure security without blocking light, ventilation, or your beautiful views.",
   },
   {
-    image: heroSportsNet,
-    title: "Sports Nets",
-    subtitle: "Professional Sports Safety Netting",
-    description: "High-quality sports nets for stadiums, cricket practice, and athletic facilities ensuring player and spectator safety.",
-  },
-  {
-    image: heroCloseup,
-    title: "Premium Quality",
-    subtitle: "Marine-Grade SS316 Materials",
-    description: "We use only the finest materials ensuring durability and long-lasting protection for your home.",
+    image: serviceHanger,
+    title: "Ceiling Cloth Hanger",
+    subtitle: "Space-Saving Drying Solution",
+    description: "Smart ceiling-mounted hangers with pulley system. Perfect for modern apartments with limited space. Rust-proof stainless steel.",
   },
 ];
 
@@ -165,7 +159,7 @@ const HeroSlider = () => {
               
               <div className="flex flex-wrap gap-4">
                 <motion.a 
-                  href="https://wa.me/919788318444?text=Hi%2C%20I%27m%20interested%20in%20your%20safety%20grills%20and%20nets%20services.%20Please%20provide%20a%20free%20quote." 
+                  href="https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20your%20safety%20grills%20and%20nets%20services.%20Please%20provide%20a%20free%20quote." 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-hero"
@@ -175,12 +169,12 @@ const HeroSlider = () => {
                   Request Free Quote
                 </motion.a>
                 <motion.a 
-                  href="tel:+919788318444" 
+                  href="tel:+917075232499" 
                   className="btn-hero-outline"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Call: +91 97883 18444
+                  Call: +91 7075 232499
                 </motion.a>
               </div>
             </motion.div>
@@ -189,7 +183,7 @@ const HeroSlider = () => {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, index) => (
           <button
             key={index}

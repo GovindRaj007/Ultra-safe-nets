@@ -1,21 +1,28 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, MapPin, ChevronDown, Shield } from "lucide-react";
+import { Menu, Phone, MapPin, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import businessLogo from "../../assets/business-logo.jpg";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 const services = [
   { name: "Invisible Grills", path: "/services/invisible-grills" },
-  { name: "Safety Nets", path: "/services/safety-nets" },
+  { name: "Balcony Invisible Grills", path: "/services/invisible-grills-balcony" },
+  { name: "Window Invisible Grills", path: "/services/invisible-grills-windows" },
   { name: "Ceiling Cloth Hanger", path: "/services/ceiling-cloth-hanger" },
-  { name: "Pigeon Nets", path: "/services/pigeon-nets" },
 ];
 
 const locations = [
-  { name: "Hyderabad", path: "/locations/hyderabad" },
-  { name: "Vizag", path: "/locations/vizag" },
-  { name: "Warangal", path: "/locations/warangal" },
-  { name: "Chittoor", path: "/locations/chittoor" },
+  { name: "Visakhapatnam", path: "/locations/visakhapatnam" },
   { name: "Rajahmundry", path: "/locations/rajahmundry" },
+  { name: "Vijayawada", path: "/locations/vijayawada" },
+  { name: "Guntur", path: "/locations/guntur" },
+  { name: "Tirupati", path: "/locations/tirupati" },
+  { name: "Ongole", path: "/locations/ongole" },
 ];
 
 // WhatsApp icon component
@@ -26,14 +33,12 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const location = useLocation();
   const lastScrollY = useRef(0);
-  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const toggleButtonRef = useRef<HTMLButtonElement>(null);
+  const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,30 +71,14 @@ const Header = () => {
     };
   }, []);
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setActiveDropdown(null);
-  }, [location]);
+  const handleDrawerClose = () => {
+    setIsDrawerOpen(false);
+  };
 
-  // Close mobile menu on outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node) &&
-          toggleButtonRef.current && !toggleButtonRef.current.contains(event.target as Node)) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    if (isMobileMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("touchstart", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [isMobileMenuOpen]);
+  const handleHomeClick = () => {
+    handleDrawerClose();
+    window.scrollTo(0, 0);
+  };
 
   return (
     <>
@@ -102,18 +91,14 @@ const Header = () => {
         <div className="hidden md:block bg-gradient-to-r from-navy via-navy-light to-navy text-primary-foreground py-1.5">
           <div className="container-custom flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
-              <a href="tel:+919788318444" className="flex items-center gap-2 hover:text-sky-light transition-colors hover:scale-105 duration-200">
+              <a href="tel:+917075232499" className="flex items-center gap-2 hover:text-sky-light transition-colors hover:scale-105 duration-200">
                 <Phone className="w-4 h-4" />
-                +91 97883 18444
-              </a>
-              <a href="tel:+919618568669" className="flex items-center gap-2 hover:text-sky-light transition-colors hover:scale-105 duration-200">
-                <Phone className="w-4 h-4" />
-                +91 96185 68669
+                +91 7075 232499
               </a>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
-              <span>Dilsukhnagar, Hyderabad - 500060</span>
+              <span>Address</span>
             </div>
           </div>
         </div>
@@ -121,26 +106,20 @@ const Header = () => {
         {/* Main Header with Solid Background */}
         <header className="bg-gradient-to-r from-navy via-navy-light to-primary shadow-lg">
           <div className="container-custom">
-            <nav className="flex items-center justify-between h-20">
+            <nav className="flex items-center justify-between h-21">
               {/* Logo */}
-              <Link to="/" className="flex items-center gap-3 group">
+              <Link to="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
                 <motion.div 
-                  className="relative w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary via-sky to-accent rounded-xl flex items-center justify-center shadow-lg overflow-hidden"
-                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  className="relative w-[16rem] h-[6rem]  lg:w-[17rem] lg:h-[7rem] flex items-center justify-center overflow-hidden rounded-lg shadow-lg"
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-                  <Shield className="w-6 h-6 md:w-8 md:h-8 text-white relative z-10" />
-                  <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-accent rounded-full flex items-center justify-center">
-                    <span className="text-[6px] md:text-[8px] font-bold text-white">US</span>
-                  </div>
+                  <img 
+                    src={businessLogo} 
+                    alt="Urban Invisible Grills Logo" 
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </motion.div>
-                <div>
-                  <h1 className="font-heading font-bold text-base md:text-lg text-white leading-tight group-hover:text-sky-light transition-colors">
-                    Ultra Safe
-                  </h1>
-                  <p className="text-[10px] md:text-xs text-white/70">Grills & Nets</p>
-                </div>
               </Link>
 
               {/* Desktop Navigation */}
@@ -261,7 +240,7 @@ const Header = () => {
               {/* CTA & Mobile Menu */}
               <div className="flex items-center gap-4">
                 <motion.a 
-                  href="tel:+919788318444" 
+                  href="tel:+917075232499" 
                   className="hidden md:flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-semibold rounded-xl shadow-lg hover:shadow-accent/30 transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -269,125 +248,112 @@ const Header = () => {
                   <Phone className="w-4 h-4" />
                   Get Quote
                 </motion.a>
-                <button
-                  ref={toggleButtonRef}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsMobileMenuOpen(!isMobileMenuOpen);
-                  }}
-                  className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors text-white"
-                  aria-label="Toggle menu"
-                >
-                  {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
+                <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+                  <DrawerTrigger asChild>
+                    <button
+                      className="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-colors text-white"
+                      aria-label="Toggle menu"
+                    >
+                      <Menu className="w-6 h-6" />
+                    </button>
+                  </DrawerTrigger>
+                  <DrawerContent className="bg-gradient-to-b from-navy to-navy-light border-t border-white/10">
+                    <div className="container-custom px-4 py-3 space-y-2">
+                      <Link to="/" onClick={handleHomeClick} className="block py-2 px-4 rounded-lg text-white hover:bg-white/10 transition-colors">
+                        Home
+                      </Link>
+                      <Link to="/about" onClick={handleDrawerClose} className="block py-2 px-4 rounded-lg text-white hover:bg-white/10 transition-colors">
+                        About Us
+                      </Link>
+                      
+                      {/* Mobile Services */}
+                      <div>
+                        <button
+                          onClick={() => setActiveDropdown(activeDropdown === "m-services" ? null : "m-services")}
+                          className="w-full flex items-center justify-between py-2 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
+                        >
+                          Services
+                          <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "m-services" ? "rotate-180" : ""}`} />
+                        </button>
+                        <AnimatePresence>
+                          {activeDropdown === "m-services" && (
+                            <motion.div 
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 space-y-1 overflow-hidden"
+                            >
+                              {services.map((service) => (
+                                <Link
+                                  key={service.path}
+                                  to={service.path}
+                                  onClick={handleDrawerClose}
+                                  className="block py-2 px-4 text-sm text-white/70 hover:text-sky-light transition-colors"
+                                >
+                                  {service.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      {/* Mobile Locations */}
+                      <div>
+                        <button
+                          onClick={() => setActiveDropdown(activeDropdown === "m-locations" ? null : "m-locations")}
+                          className="w-full flex items-center justify-between py-2 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
+                        >
+                          Locations
+                          <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "m-locations" ? "rotate-180" : ""}`} />
+                        </button>
+                        <AnimatePresence>
+                          {activeDropdown === "m-locations" && (
+                            <motion.div 
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 space-y-1 overflow-hidden"
+                            >
+                              {locations.map((loc) => (
+                                <Link
+                                  key={loc.path}
+                                  to={loc.path}
+                                  onClick={handleDrawerClose}
+                                  className="block py-2 px-4 text-sm text-white/70 hover:text-sky-light transition-colors"
+                                >
+                                  {loc.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      <Link to="/contact" onClick={handleDrawerClose} className="block py-2 px-4 rounded-lg text-white hover:bg-white/10 transition-colors">
+                        Contact
+                      </Link>
+
+                      <a href="tel:+917075232499" onClick={handleDrawerClose} className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-colors mt-1 mb-2">
+                        <Phone className="w-4 h-4" />
+                        Call Now: +91 7075 232499
+                      </a>
+                      <a 
+                        href="https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20Urban%20Invisible%20Grills%20services.%20Please%20share%20more%20details%20about%20your%20invisible%20grills%20and%20safety%20solutions."
+                        onClick={handleDrawerClose}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-accent text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-colors pb-3"
+                      >
+                        <WhatsAppIcon className="w-5 h-5" />
+                        WhatsApp Us
+                      </a>
+                    </div>
+                  </DrawerContent>
+                </Drawer>
               </div>
             </nav>
           </div>
-
-          {/* Mobile Menu */}
-          <AnimatePresence>
-            {isMobileMenuOpen && (
-              <motion.div
-                ref={mobileMenuRef}
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="lg:hidden bg-gradient-to-b from-navy to-navy-light border-t border-white/10 overflow-hidden"
-              >
-                <div className="container-custom py-4 space-y-2">
-                  <Link to="/" className="block py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors">
-                    Home
-                  </Link>
-                  <Link to="/about" className="block py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors">
-                    About Us
-                  </Link>
-                  
-                  {/* Mobile Services */}
-                  <div>
-                    <button
-                      onClick={() => setActiveDropdown(activeDropdown === "m-services" ? null : "m-services")}
-                      className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
-                    >
-                      Services
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "m-services" ? "rotate-180" : ""}`} />
-                    </button>
-                    <AnimatePresence>
-                      {activeDropdown === "m-services" && (
-                        <motion.div 
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="pl-4 space-y-1 overflow-hidden"
-                        >
-                          {services.map((service) => (
-                            <Link
-                              key={service.path}
-                              to={service.path}
-                              className="block py-2 px-4 text-sm text-white/70 hover:text-sky-light transition-colors"
-                            >
-                              {service.name}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Mobile Locations */}
-                  <div>
-                    <button
-                      onClick={() => setActiveDropdown(activeDropdown === "m-locations" ? null : "m-locations")}
-                      className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
-                    >
-                      Locations
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === "m-locations" ? "rotate-180" : ""}`} />
-                    </button>
-                    <AnimatePresence>
-                      {activeDropdown === "m-locations" && (
-                        <motion.div 
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="pl-4 space-y-1 overflow-hidden"
-                        >
-                          {locations.map((loc) => (
-                            <Link
-                              key={loc.path}
-                              to={loc.path}
-                              className="block py-2 px-4 text-sm text-white/70 hover:text-sky-light transition-colors"
-                            >
-                              {loc.name}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  <Link to="/contact" className="block py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors">
-                    Contact
-                  </Link>
-
-                   <a href="tel:+919788318444" className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-colors mt-2">
-                    <Phone className="w-4 h-4" />
-                    Call Now: +91 97883 18444
-                  </a>
-
-                  {/* WhatsApp Button */}
-                  <a 
-                    href="https://wa.me/919788318444?text=Hi%2C%20I%27m%20interested%20in%20UltraSafe%20Grills%20%26%20Nets%20services.%20Please%20share%20more%20details%20about%20your%20invisible%20grills%20and%20safety%20nets."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-3 px-6 bg-accent text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-colors"
-                  >
-                    <WhatsAppIcon className="w-5 h-5" />
-                    WhatsApp Us
-                  </a>
-                  
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </header>
       </div>
     </>

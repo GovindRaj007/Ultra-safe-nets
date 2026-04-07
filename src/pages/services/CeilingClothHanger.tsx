@@ -57,12 +57,12 @@ const CeilingClothHanger = () => {
   return (
     <>
       <Helmet>
-        <title>Ceiling Cloth Hanger Installation | Space-Saving Drying Solution | Ultra Safe</title>
+        <title>Ceiling Cloth Hanger Installation | Space-Saving Drying Solution | Urban Invisible Grills</title>
         <meta
           name="description"
-          content="Premium ceiling cloth hanger installation in Hyderabad. Space-saving pulley system for modern apartments. Stainless steel, rust-proof. Call +91 97883 18444."
+          content="Premium ceiling cloth hanger installation in Hyderabad. Space-saving pulley system for modern apartments. Stainless steel, rust-proof. Call +91 7075 232499."
         />
-        <link rel="canonical" href="https://ultrasafegrills.com/services/ceiling-cloth-hanger" />
+        <link rel="canonical" href="https://urbanigrills.com/services/ceiling-cloth-hanger" />
       </Helmet>
       
       <Layout>
@@ -82,6 +82,8 @@ const CeilingClothHanger = () => {
               <nav className="flex items-center gap-2 text-sm text-primary-foreground/60 mb-6">
                 <Link to="/" className="hover:text-primary-foreground">Home</Link>
                 <span>/</span>
+                <Link to="/#services" className="hover:text-primary-foreground">Services</Link>
+                <span>/</span>
                 <span className="text-primary-foreground">Ceiling Cloth Hanger</span>
               </nav>
               <span className="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-full text-sm font-bold mb-4">
@@ -93,7 +95,7 @@ const CeilingClothHanger = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-hero">Get Free Quote</Link>
-                <a href="tel:+919788318444" className="btn-hero-outline"><Phone className="w-5 h-5" /> Call Now</a>
+                <a href="tel:+917075232499" className="btn-hero-outline"><Phone className="w-5 h-5" /> Call Now</a>
               </div>
             </motion.div>
           </div>

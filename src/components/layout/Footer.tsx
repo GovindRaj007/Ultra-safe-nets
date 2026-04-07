@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import businessLogo from "../../assets/business-logo.jpg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,31 +13,17 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">US</span>
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-lg">Ultra Safe</h3>
-                <p className="text-sm text-sky-light">Grills & Nets</p>
+              <div className="w-[16rem] h-[6rem] md:w-[17rem] md:h-[7rem] rounded-lg overflow-hidden shadow-lg flex-shrink-0">
+                <img 
+                  src={businessLogo} 
+                  alt="Urban Invisible Grills Logo" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              India's premium invisible grill and safety net specialists. Protecting homes and families across Telangana and Andhra Pradesh with modern, elegant safety solutions.
+              Andhra Pradesh's trusted provider of premium invisible grills and safety solutions. Protecting homes and families across the state with modern, elegant, and innovative safety products.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors" aria-label="YouTube">
-                <Youtube className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors" aria-label="LinkedIn">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           {/* Our Services */}
@@ -49,18 +36,18 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services/safety-nets" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                  Safety Nets
+                <Link to="/services/invisible-grills-balcony" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                  Balcony Invisible Grills
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/invisible-grills-windows" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                  Window Invisible Grills
                 </Link>
               </li>
               <li>
                 <Link to="/services/ceiling-cloth-hanger" className="text-muted-foreground hover:text-primary-foreground transition-colors">
                   Ceiling Cloth Hanger
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/pigeon-nets" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                  Pigeon Nets
                 </Link>
               </li>
             </ul>
@@ -71,28 +58,33 @@ const Footer = () => {
             <h4 className="font-heading font-bold text-lg mb-6">Service Locations</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/locations/hyderabad" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                  Hyderabad
-                </Link>
-              </li>
-              <li>
-                <Link to="/locations/vizag" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                  Visakhapatnam (Vizag)
-                </Link>
-              </li>
-              <li>
-                <Link to="/locations/warangal" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                  Warangal
-                </Link>
-              </li>
-              <li>
-                <Link to="/locations/chittoor" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                  Chittoor
+                <Link to="/locations/visakhapatnam" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                  Visakhapatnam
                 </Link>
               </li>
               <li>
                 <Link to="/locations/rajahmundry" className="text-muted-foreground hover:text-primary-foreground transition-colors">
                   Rajahmundry
+                </Link>
+              </li>
+              <li>
+                <Link to="/locations/vijayawada" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                  Vijayawada
+                </Link>
+              </li>
+              <li>
+                <Link to="/locations/guntur" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                  Guntur
+                </Link>
+              </li>
+              <li>
+                <Link to="/locations/tirupati" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                  Tirupati
+                </Link>
+              </li>
+              <li>
+                <Link to="/locations/ongole" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                  Ongole
                 </Link>
               </li>
             </ul>
@@ -103,26 +95,20 @@ const Footer = () => {
             <h4 className="font-heading font-bold text-lg mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+919788318444" className="flex items-start gap-3 text-muted-foreground hover:text-primary-foreground transition-colors">
+                <a href="tel:+917075232499" className="flex items-start gap-3 text-muted-foreground hover:text-primary-foreground transition-colors">
                   <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                  <span>+91 97883 18444</span>
+                  <span>+91 7075 232499</span>
                 </a>
               </li>
               <li>
-                <a href="tel:+919618568669" className="flex items-start gap-3 text-muted-foreground hover:text-primary-foreground transition-colors">
-                  <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                  <span>+91 96185 68669</span>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:info@ultrasafegrills.com" className="flex items-start gap-3 text-muted-foreground hover:text-primary-foreground transition-colors">
+                <a href="mailto:info@urbanigrills.com" className="flex items-start gap-3 text-muted-foreground hover:text-primary-foreground transition-colors">
                   <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                  <span>info@ultrasafegrills.com</span>
+                  <span>urbaninvisiblegrills.ap@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>Dilsukhnagar, Hyderabad - 500060</span>
+                <span>Address</span>
               </li>
               <li className="flex items-start gap-3 text-muted-foreground">
                 <Clock className="w-5 h-5 mt-0.5 flex-shrink-0" />
@@ -137,7 +123,7 @@ const Footer = () => {
       <div className="border-t border-primary/20">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>© {currentYear} Ultra Safe Grills & Nets. All rights reserved.</p>
+            <p>© {currentYear} Urban Invisible Grills. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="/privacy-policy" className="hover:text-primary-foreground transition-colors">
                 Privacy Policy

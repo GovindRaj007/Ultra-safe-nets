@@ -29,7 +29,7 @@ const CTASection = () => {
             Ready to Make Your Home Safer?
           </h2>
           <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-10">
-            Get a free consultation and quote for invisible grills, safety nets, and more. 
+            Get a free consultation and quote for invisible grills, ceiling cloth hangers, and complete home safety solutions. 
             Our experts are ready to help you protect what matters most.
           </p>
           
@@ -41,16 +41,16 @@ const CTASection = () => {
               </Link>
             </motion.div>
             <motion.a 
-              href="tel:+919788318444" 
-              className="btn-hero-outline border-primary-foreground/30"
+              href="tel:+917075232499" 
+              className="btn-hero-outline border-primary-foreground/30 bg-white text-navy"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Phone className="w-5 h-5" />
-              +91 97883 18444
+              +91 7075 232499
             </motion.a>
             <motion.a
-              href="https://wa.me/919788318444"
+              href="https://wa.me/917075232499"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-hero-outline border-primary-foreground/30"

@@ -4,29 +4,34 @@ import { MapPin, ArrowRight } from "lucide-react";
 
 const locations = [
   {
-    name: "Hyderabad",
-    description: "Serving Madhapur, Gachibowli, Jubilee Hills, Banjara Hills, Kondapur & all areas",
-    path: "/locations/hyderabad",
-  },
-  {
     name: "Visakhapatnam",
-    description: "Complete coverage across Vizag including Beach Road, MVP Colony & surrounding areas",
-    path: "/locations/vizag",
-  },
-  {
-    name: "Warangal",
-    description: "Professional installation services throughout Warangal city and suburbs",
-    path: "/locations/warangal",
-  },
-  {
-    name: "Chittoor",
-    description: "Expert safety solutions for residential and commercial properties in Chittoor",
-    path: "/locations/chittoor",
+    description: "Premium services across Visakhapatnam including Beach Road, MVP Colony, Gajuwaka & all areas",
+    path: "/locations/visakhapatnam",
   },
   {
     name: "Rajahmundry",
-    description: "Trusted invisible grill and safety net installation across Rajahmundry",
+    description: "Proven expertise in invisible grills and ceiling cloth hangers across Rajahmundry",
     path: "/locations/rajahmundry",
+  },
+  {
+    name: "Vijayawada",
+    description: "Expert invisible grills installation throughout Vijayawada and surrounding regions",
+    path: "/locations/vijayawada",
+  },
+  {
+    name: "Guntur",
+    description: "Trusted safety solutions for residential and commercial properties in Guntur",
+    path: "/locations/guntur",
+  },
+  {
+    name: "Tirupati",
+    description: "Professional installation services across the temple city and key localities",
+    path: "/locations/tirupati",
+  },
+  {
+    name: "Ongole",
+    description: "Premium invisible grills and ceiling hangers serving Ongole and nearby areas",
+    path: "/locations/ongole",
   },
 ];
 
@@ -50,10 +55,10 @@ const LocationsSection = () => {
             Service Areas
           </span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-            Trusted Across Telangana & Andhra Pradesh
+            Serving All of Andhra Pradesh
           </h2>
           <p className="text-primary-foreground/70 max-w-2xl mx-auto">
-            With a strong presence in major cities, we've become the preferred choice for families seeking modern, elegant safety solutions.
+            With presence in major cities across Andhra Pradesh, we're your trusted provider for premium invisible grills and safety solutions. Even in non-listed areas, we provide complete coverage!
           </p>
         </motion.div>
 

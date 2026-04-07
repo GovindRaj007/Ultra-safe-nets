@@ -2,44 +2,44 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import serviceInvisibleGrill from "@/assets/service-invisible-grill.jpg";
-import serviceSafetyNet from "@/assets/service-safety-net.jpg";
-import serviceHanger from "@/assets/service-hanger.jpg";
-import servicePigeonNet from "@/assets/service-pigeon-net.jpg";
+import serviceBalconyGrills from "@/assets/service-balcony-grills.jpg";
+import serviceWindowGrills from "@/assets/service-window-grills.jpg";
+import serviceHanger2 from "@/assets/service-hanger2.jpg";
 
 const services = [
   {
     title: "Invisible Grills",
-    description: "High-tensile SS316 stainless steel invisible grills for windows and balconies. Child-safe, rust-proof, and aesthetically pleasing.",
+    description: "Premium SS316 stainless steel invisible grills solution. High-tensile cables, child-safe design, rust-proof and weather-resistant for all applications.",
     image: serviceInvisibleGrill,
     link: "/services/invisible-grills",
-    badge: "10% OFF",
+    badge: "Most Popular",
   },
   {
-    title: "Safety Nets",
-    description: "Premium quality safety nets for balconies, windows, and terraces. Complete protection for children and pets.",
-    image: serviceSafetyNet,
-    link: "/services/safety-nets",
-    badge: "5% OFF",
+    title: "Balcony Invisible Grills",
+    description: "Specialized invisible grills designed specifically for balconies. Maintain panoramic views while ensuring complete family safety and protection.",
+    image: serviceBalconyGrills,
+    link: "/services/invisible-grills-balcony",
+    badge: "Premium",
+  },
+  {
+    title: "Window Invisible Grills",
+    description: "Child-safe window protection solution. Invisible cables provide security without blocking light or ventilation. Perfect for high-rise apartments.",
+    image: serviceWindowGrills,
+    link: "/services/invisible-grills-windows",
+    badge: "Child-Safe",
   },
   {
     title: "Ceiling Cloth Hanger",
-    description: "Space-saving ceiling-mounted clothes drying hangers with pulley system. Perfect for modern apartments.",
-    image: serviceHanger,
+    description: "Space-saving ceiling-mounted clothes drying hangers with pulley system. Rust-proof stainless steel, perfect for modern apartments with limited space.",
+    image: serviceHanger2,
     link: "/services/ceiling-cloth-hanger",
-    badge: "₹500 OFF",
-  },
-  {
-    title: "Pigeon Nets",
-    description: "Effective pigeon and bird protection nets. Keep your balcony clean and bird-free without harming them.",
-    image: servicePigeonNet,
-    link: "/services/pigeon-nets",
-    badge: "Special Price",
+    badge: "Space-Saving",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="section-padding section-gradient-2 relative overflow-hidden">
+    <section id="services" className="section-padding section-gradient-2 relative overflow-hidden">
       {/* 3D Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
@@ -60,7 +60,7 @@ const ServicesSection = () => {
             Premium Safety Solutions
           </h2>
           <p className="text-primary-foreground/70 max-w-2xl mx-auto">
-            We provide comprehensive safety solutions for your home and office. From invisible grills to safety nets, we have you covered.
+            We provide comprehensive safety solutions for your home and office. From invisible grills to ceiling cloth hangers, we have all your protection needs covered.
           </p>
         </motion.div>
 

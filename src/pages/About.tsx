@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Shield, Award, Users, Target, CheckCircle } from "lucide-react";
-import heroBuilding from "@/assets/hero-building.jpg";
+import heroBalcony from "@/assets/hero-balcony.jpg";
 
 const values = [
   {
@@ -31,19 +31,19 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | Ultra Safe Grills & Nets - Leading Safety Solutions Provider</title>
+        <title>About Us | Urban Invisible Grills - Leading Safety Solutions Provider</title>
         <meta
           name="description"
-          content="Learn about Ultra Safe Grills & Nets - India's trusted invisible grill and safety net specialists. 10+ years experience, 5000+ projects completed across Telangana and Andhra Pradesh."
+          content="Learn about Urban Invisible Grills - India's trusted invisible grill specialists. 6+ years experience, 5000+ projects completed across Andhra Pradesh."
         />
-        <link rel="canonical" href="https://ultrasafegrills.com/about" />
+        <link rel="canonical" href="https://urbanigrills.com/about" />
       </Helmet>
       
       <Layout>
         {/* Hero Section */}
         <section className="relative py-20 bg-navy text-primary-foreground overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <img src={heroBuilding} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 opacity-50">
+            <img src={heroBalcony} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/70" />
           
@@ -61,7 +61,7 @@ const About = () => {
                 India's Trusted Safety Solutions Provider
               </h1>
               <p className="text-lg text-primary-foreground/80">
-                With over 10 years of experience and 5000+ successful installations, we've become the 
+                With over 6 years of experience and 5000+ successful installations, we've become the 
                 preferred choice for families and businesses seeking modern, elegant safety solutions.
               </p>
             </motion.div>
@@ -82,19 +82,19 @@ const About = () => {
                 </h2>
                 <div className="space-y-4 text-primary-foreground/70">
                   <p>
-                    Ultra Safe Grills & Nets was founded with a simple mission: to provide modern, 
+                    Urban Invisible Grills was founded with a simple mission: to provide modern, 
                     aesthetically pleasing safety solutions that protect families without compromising 
                     the beauty of their homes.
                   </p>
                   <p>
-                    What started as a small operation in Hyderabad has grown into a trusted brand 
-                    serving customers across Telangana and Andhra Pradesh. Our commitment to quality, 
+                    What started as a dedicated service in one city has grown into a trusted brand 
+                    serving customers across all of Andhra Pradesh. Our commitment to quality, 
                     innovation, and customer satisfaction has earned us the trust of thousands of 
                     homeowners, builders, and corporate clients.
                   </p>
                   <p>
-                    Today, we offer a comprehensive range of safety products including invisible grills, 
-                    safety nets, ceiling cloth hangers, and pigeon nets – all designed to blend seamlessly 
+                    Today, we offer a comprehensive range of safety products including invisible grills 
+                    for different applications and ceiling cloth hangers – all designed to blend seamlessly 
                     with modern architecture while providing uncompromising protection.
                   </p>
                 </div>
@@ -107,7 +107,7 @@ const About = () => {
                 className="grid grid-cols-2 gap-4"
               >
                 {[
-                  { value: "10+", label: "Years Experience" },
+                  { value: "6+", label: "Years Experience" },
                   { value: "5000+", label: "Projects Done" },
                   { value: "5", label: "Cities Served" },
                   { value: "98%", label: "Happy Customers" },

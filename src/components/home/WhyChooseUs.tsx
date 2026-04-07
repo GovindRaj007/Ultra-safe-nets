@@ -26,7 +26,7 @@ const features = [
 
 const stats = [
   { value: "5000+", label: "Projects Completed" },
-  { value: "10+", label: "Years Experience" },
+  { value: "6+", label: "Years Experience" },
   { value: "98%", label: "Customer Satisfaction" },
   { value: "5", label: "Cities Covered" },
 ];
@@ -52,10 +52,10 @@ const WhyChooseUs = () => {
               Why Choose Us
             </span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-              What Sets Ultra Safe Grills Apart?
+              What Sets Urban Invisible Grills Apart?
             </h2>
             <p className="text-primary-foreground/70 mb-8">
-              Ultra Safe Grills & Nets stands out as a trusted name in modern home safety solutions. 
+              Urban Invisible Grills stands out as a trusted name in modern home safety solutions. 
               What makes us different is our commitment to innovation, quality, and aesthetics — 
               ensuring protection that never compromises your view or your home's beauty.
             </p>

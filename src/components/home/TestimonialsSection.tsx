@@ -7,11 +7,11 @@ const testimonials = [
     name: "Rajesh Kumar",
     location: "Hyderabad",
     rating: 5,
-    text: "Excellent service! The invisible grills look amazing and my kids are now safe on our balcony. Highly recommend Ultra Safe Grills.",
+    text: "Excellent service! The invisible grills look amazing and my kids are now safe on our balcony. Highly recommend Urban Invisible Grills.",
   },
   {
     name: "Priya Sharma",
-    location: "Vizag",
+    location: "Visakhapatnam",
     rating: 5,
     text: "Very professional team. They completed the installation quickly and the quality of materials used is top-notch. Great value for money.",
   },
@@ -21,17 +21,12 @@ const testimonials = [
     rating: 5,
     text: "The ceiling cloth hanger has been a game changer for our apartment. Space-saving and very convenient to use. Thank you team!",
   },
-  {
-    name: "Lakshmi Devi",
-    location: "Chittoor",
-    rating: 5,
-    text: "We got pigeon nets installed for our entire building. The team was punctual and completed the work within promised time. No more bird problems!",
-  },
+
   {
     name: "Suresh Reddy",
     location: "Rajahmundry",
     rating: 5,
-    text: "Best safety net service in Andhra Pradesh. The quality is unmatched and the pricing is very reasonable. Our balcony is now child-safe.",
+    text: "Best invisible grill service in Andhra Pradesh. The quality is unmatched and the pricing is very reasonable. Our balcony is now completely child-safe.",
   },
 ];
 

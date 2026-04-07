@@ -23,31 +23,59 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    
-    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
-    setIsSubmitting(false);
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone);
+      formDataToSend.append('service', formData.service);
+      formDataToSend.append('message', formData.message);
+
+      const response = await fetch('https://formspree.io/f/mlgozlpv', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An error occurred. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <>
       <Helmet>
-        <title>Contact Us | Ultra Safe Grills & Nets - Get Free Quote</title>
+        <title>Contact Us | Urban Invisible Grills - Get Free Quote Across Andhra Pradesh</title>
         <meta
           name="description"
-          content="Contact Ultra Safe Grills & Nets for invisible grills, safety nets installation. Call +91 97883 18444 or visit us in Hyderabad. Free consultation available."
+          content="Contact Urban Invisible Grills for invisible grills and premium safety solutions across Andhra Pradesh. Free consultation, site visit & quotation. Call +91 7075 232499."
         />
-        <link rel="canonical" href="https://ultrasafegrills.com/contact" />
+        <link rel="canonical" href="https://urbanigrills.com/contact" />
       </Helmet>
       
       <Layout>
@@ -92,6 +120,7 @@ const Contact = () => {
                       <label className="block text-sm font-medium text-white/70 mb-2">Name *</label>
                       <input
                         type="text"
+                        name="name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -103,6 +132,7 @@ const Contact = () => {
                       <label className="block text-sm font-medium text-white/70 mb-2">Phone *</label>
                       <input
                         type="tel"
+                        name="phone"
                         required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -115,6 +145,7 @@ const Contact = () => {
                     <label className="block text-sm font-medium text-white/70 mb-2">Email</label>
                     <input
                       type="email"
+                      name="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-input bg-white text-navy focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
@@ -124,21 +155,23 @@ const Contact = () => {
                   <div>
                     <label className="block text-sm font-medium text-white/70 mb-2">Service Required</label>
                     <select
+                      name="service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-input bg-white text-navy focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23333%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[right_1rem_center] bg-[length:1rem] pr-10"
                     >
                       <option value="">Select a service</option>
                       <option value="invisible-grills">Invisible Grills</option>
-                      <option value="safety-nets">Safety Nets</option>
+                      <option value="invisible-grills-balcony">Balcony Invisible Grills</option>
+                      <option value="invisible-grills-windows">Window Invisible Grills</option>
                       <option value="ceiling-cloth-hanger">Ceiling Cloth Hanger</option>
-                      <option value="pigeon-nets">Pigeon Nets</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-white/70 mb-2">Message</label>
                     <textarea
+                      name="message"
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -175,11 +208,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-white/70 mb-1">Phone</h3>
-                        <a href="tel:+919788318444" className="text-muted-foreground hover:text-primary-foreground transition-colors block">
-                          +91 97883 18444
-                        </a>
-                        <a href="tel:+919618568669" className="text-muted-foreground hover:text-primary-foreground transition-colors block">
-                          +91 96185 68669
+                        <a href="tel:+917075232499" className="text-muted-foreground hover:text-primary-foreground transition-colors block">
+                          +91 7075 232499
                         </a>
                       </div>
                     </div>
@@ -189,8 +219,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-white/70 mb-1">Email</h3>
-                        <a href="mailto:info@ultrasafegrills.com" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                          info@ultrasafegrills.com
+                        <a href="mailto:info@urbanigrills.com" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                          info@urbanigrills.com
                         </a>
                       </div>
                     </div>
@@ -201,9 +231,7 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-white/70 mb-1">Address</h3>
                         <p className="text-muted-foreground">
-                          Dilsukhnagar,<br />
-                          Hyderabad - 500060,<br />
-                          Telangana, India
+                          Address
                         </p>
                       </div>
                     </div>
@@ -231,7 +259,7 @@ const Contact = () => {
                     Get instant replies to your queries. Chat with us on WhatsApp for faster service.
                   </p>
                   <a
-                    href="https://wa.me/919788318444?text=Hi%2C%20I%27m%20interested%20in%20UltraSafe%20Grills%20%26%20Nets%20services.%20Please%20share%20more%20details%20about%20your%20invisible%20grills%20and%20safety%20nets."
+                    href="https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20Urban%20Invisible%20Grills%20services.%20Please%20share%20more%20details%20about%20your%20invisible%20grills%20and%20safety%20solutions."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#128C7E] transition-colors"
@@ -241,17 +269,17 @@ const Contact = () => {
                   </a>
                 </div>
 
-                {/* Map - Dilsukhnagar coordinates: 17°21'34.6"N 78°31'25.5"E */}
+                {/* Map Section */}
                 <div className="glass-card overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.5!2d78.5237!3d17.3596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99c1a0c7a1a1%3A0x0!2sDilsukhnagar%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.5!2d78.5237!3d17.3596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99c1a0c7a1a1%3A0x0!2sAndhra%20Pradesh%2C%20India!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
                     width="100%"
                     height="250"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Ultra Safe Grills Location - Dilsukhnagar"
+                    title="Urban Invisible Grills Location"
                   />
                 </div>
               </motion.div>

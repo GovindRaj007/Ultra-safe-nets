@@ -23,28 +23,35 @@ const ServiceImageSlider = ({ images }: ServiceImageSliderProps) => {
 
   return (
     <div className="relative rounded-2xl overflow-hidden shadow-lg h-72 md:h-80 lg:h-96">
-      <AnimatePresence mode="wait">
-        <motion.img
+      <AnimatePresence>
+        <motion.div
           key={currentIndex}
-          src={images[currentIndex].src}
-          alt={images[currentIndex].alt}
-          className="w-full h-full object-cover"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-        />
-        
-        {/* Top-Right Feature Badge */}
-        <motion.span
-          key={`badge-${currentIndex}`}
-          className="absolute top-4 right-4 inline-block px-4 py-2 bg-gradient-to-r from-primary/40 to-sky/40 backdrop-blur-md border border-primary/50 rounded-full text-sm font-medium shadow-lg"
-          initial={{ opacity: 0, scale: 0.9, y: -20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          className="w-full h-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <span className="text-white drop-shadow-lg font-semibold">{images[currentIndex].alt}</span>
-        </motion.span>
+          <motion.img
+            src={images[currentIndex].src}
+            alt={images[currentIndex].alt}
+            className="w-full h-full object-cover"
+            initial={{ scale: 1.05 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.95 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          />
+          
+          {/* Top-Right Feature Badge */}
+          <motion.span
+            className="absolute top-4 right-4 inline-block px-4 py-2 bg-gradient-to-r from-primary/40 to-sky/40 backdrop-blur-md border border-primary/50 rounded-full text-sm font-medium shadow-lg"
+            initial={{ opacity: 0, scale: 0.9, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <span className="text-white drop-shadow-lg font-semibold">{images[currentIndex].alt}</span>
+          </motion.span>
+        </motion.div>
       </AnimatePresence>
     </div>
   );

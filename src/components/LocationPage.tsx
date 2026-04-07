@@ -16,37 +16,37 @@ interface LocationPageProps {
 const LocationPage = ({ city, state, description, areas, slug, backgroundImage }: LocationPageProps) => {
   const services = [
     { name: "Invisible Grills", path: "/services/invisible-grills" },
-    { name: "Safety Nets", path: "/services/safety-nets" },
+    { name: "Balcony Invisible Grills", path: "/services/invisible-grills-balcony" },
+    { name: "Window Invisible Grills", path: "/services/invisible-grills-windows" },
     { name: "Ceiling Cloth Hanger", path: "/services/ceiling-cloth-hanger" },
-    { name: "Pigeon Nets", path: "/services/pigeon-nets" },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Invisible Grills & Safety Nets in {city} | Ultra Safe Grills</title>
+        <title>Invisible Grills Installation in {city} | Urban Invisible Grills</title>
         <meta
           name="description"
-          content={`Premium invisible grills and safety nets installation in ${city}, ${state}. Child-safe, rust-proof SS316 stainless steel grills. Call +91 97883 18444 for free quote.`}
+          content={`Premium invisible grills installation in ${city}, ${state}. Child-safe, rust-proof SS316 stainless steel grills. Call +91 7075 232499 for free quote.`}
         />
         <meta
           name="keywords"
-          content={`invisible grills ${city}, safety nets ${city}, balcony safety ${city}, child safety grills ${city}, pigeon nets ${city}`}
+          content={`invisible grills ${city}, balcony grills ${city}, window grills ${city}, child safety grills ${city}, stainless steel grills ${city}`}
         />
-        <link rel="canonical" href={`https://ultrasafegrills.com/locations/${slug}`} />
+        <link rel="canonical" href={`https://urbanigrills.com/locations/${slug}`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": `Ultra Safe Grills & Nets - ${city}`,
-            "description": `Premium invisible grills and safety nets installation in ${city}`,
+            "name": `Urban Invisible Grills - ${city}`,
+            "description": `Premium invisible grills installation in ${city}. Serving all of Andhra Pradesh with professional installation and warranty.`,
             "address": {
               "@type": "PostalAddress",
               "addressLocality": city,
               "addressRegion": state,
               "addressCountry": "IN"
             },
-            "telephone": "+91-9788318444",
+            "telephone": "+91-7075232499",
             "areaServed": city
           })}
         </script>
@@ -81,15 +81,15 @@ const LocationPage = ({ city, state, description, areas, slug, backgroundImage }
                 <span className="text-sky-light font-medium">{state}</span>
               </div>
               <h1 className="font-heading text-4xl md:text-5xl font-bold mb-6">
-                Invisible Grills & Safety Nets in {city}
+                Invisible Grills Installation in {city}
               </h1>
               <p className="text-lg text-primary-foreground/80 mb-8">
                 {description}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-hero">Get Free Quote</Link>
-                <a href="tel:+919788318444" className="btn-hero-outline">
-                  <Phone className="w-5 h-5" /> +91 97883 18444
+                <a href="tel:+917075232499" className="btn-hero-outline">
+                  <Phone className="w-5 h-5" /> +91 7075 232499
                 </a>
               </div>
             </motion.div>
@@ -176,6 +176,22 @@ const LocationPage = ({ city, state, description, areas, slug, backgroundImage }
                 </motion.div>
               ))}
             </div>
+
+            {/* AP-Wide Coverage Message */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 p-6 md:p-8 bg-gradient-to-r from-sky/10 to-primary/10 border border-sky/30 rounded-2xl max-w-3xl mx-auto text-center"
+            >
+              <h3 className="font-heading text-xl font-bold text-sky-light mb-3">
+                🌍 Serving All of Andhra Pradesh
+              </h3>
+              <p className="text-white/80">
+                While we have dedicated service teams in major cities, we provide complete installation and service coverage across all of Andhra Pradesh. 
+                If your city isn't listed here, please don't hesitate to contact us at +91 7075 232499 or visit our contact page. We're ready to serve you!
+              </p>
+            </motion.div>
           </div>
         </section>
 
@@ -215,7 +231,7 @@ const LocationPage = ({ city, state, description, areas, slug, backgroundImage }
               <Link to="/contact" className="btn-hero bg-background text-foreground">
                 Get Free Quote
               </Link>
-              <a href="tel:+919788318444" className="btn-hero-outline border-primary-foreground/30">
+              <a href="tel:+917075232499" className="btn-hero-outline border-primary-foreground/30">
                 <Phone className="w-5 h-5" /> Call Now
               </a>
             </div>

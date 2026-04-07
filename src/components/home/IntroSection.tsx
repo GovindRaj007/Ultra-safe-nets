@@ -14,9 +14,9 @@ import introZeroMaintenance from "@/assets/intro-zero-maintenance.jpg";
 const images = [
   {
     src: introBalconyView,
-    // alt: "Ultra Safe Grills & Nets",
+    // alt: "Urban Invisible Grills",
     animation: "slideRight",
-    overlay: { line1: "Ultra Safe", line2: "Grills & Nets" },
+    overlay: { line1: "Urban", line2: "Invisible Grills" },
     textColor1: "#1e3a5f",
     textColor2: "#2d5a87",
   },
@@ -192,7 +192,7 @@ const IntroSection = () => {
             Premium Protection Solutions
           </div>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-2">
-            UltraSafe Grills & Nets
+            Urban Invisible Grills
           </h2>
           <p className="text-primary-foreground/70">
             India's Most Trusted Safety Solution
@@ -259,7 +259,7 @@ const IntroSection = () => {
                 Transform Your Space with Invisible Protection
               </h3>
               <p className="text-primary-foreground/70 mb-5 leading-relaxed">
-                UltraSafe Grills & Nets brings you state-of-the-art invisible
+                Urban Invisible Grills brings you state-of-the-art invisible
                 grills that provide uncompromising safety without obstructing
                 your beautiful views. Made with premium marine-grade SS316
                 stainless steel, our grills are designed to last a lifetime

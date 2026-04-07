@@ -12,38 +12,37 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Ultra Safe Grills & Nets | Invisible Grills & Safety Nets in Hyderabad</title>
+        <title>Urban Invisible Grills | Premium Invisible Grills Across Andhra Pradesh</title>
         <meta
           name="description"
-          content="India's premium invisible grill and safety net specialists. Get child-safe, rust-proof stainless steel invisible grills installed in Hyderabad, Vizag, Warangal, Chittoor & Rajahmundry."
+          content="India's premium invisible grill specialists. Get child-safe, rust-proof stainless steel invisible grills installed across Andhra Pradesh. Free consultation!"
         />
         <meta
           name="keywords"
-          content="invisible grills, safety nets, balcony safety, child safety nets, pigeon nets, ceiling cloth hanger, Hyderabad, Vizag, Warangal, stainless steel grills"
+          content="invisible grills, balcony safety, child safety, ceiling cloth hanger, Andhra Pradesh, Visakhapatnam, Rajahmundry, Vijayawada, Guntur, Tirupati, Ongole, stainless steel grills"
         />
-        <link rel="canonical" href="https://ultrasafegrills.com" />
-        <meta property="og:title" content="Ultra Safe Grills & Nets | Premium Safety Solutions" />
-        <meta property="og:description" content="India's premium invisible grill and safety net specialists. Protect your home with style." />
+        <link rel="canonical" href="https://urbanigrills.com" />
+        <meta property="og:title" content="Urban Invisible Grills | Premium Safety Solutions" />
+        <meta property="og:description" content="India's premium invisible grill specialists. Protect your home with style and security." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ultrasafegrills.com" />
+        <meta property="og:url" content="https://urbanigrills.com" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Ultra Safe Grills & Nets",
-            "description": "Premium invisible grills and safety nets installation services",
+            "name": "Urban Invisible Grills",
+            "description": "Premium invisible grills and complete home safety solutions across Andhra Pradesh",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Door No 5-11, Madhapur",
-              "addressLocality": "Hyderabad",
-              "addressRegion": "Telangana",
-              "postalCode": "500081",
+              "streetAddress": "Address",
+              "addressLocality": "Address",
+              "addressRegion": "Andhra Pradesh",
               "addressCountry": "IN"
             },
-            "telephone": "+91-9788318444",
+            "telephone": "+91-7075232499",
             "priceRange": "$$",
             "openingHours": "Mo-Sa 09:00-19:00",
-            "areaServed": ["Hyderabad", "Visakhapatnam", "Warangal", "Chittoor", "Rajahmundry"]
+            "areaServed": ["Andhra Pradesh", "Visakhapatnam", "Rajahmundry", "Vijayawada", "Guntur", "Tirupati", "Ongole"]
           })}
         </script>
       </Helmet>

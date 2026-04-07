@@ -11,14 +11,17 @@ import { HelmetProvider } from "react-helmet-async";
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const InvisibleGrills = lazy(() => import("./pages/services/InvisibleGrills"));
-const SafetyNets = lazy(() => import("./pages/services/SafetyNets"));
+const InvisibleGrillsBalcony = lazy(() => import("./pages/services/InvisibleGrillsBalcony"));
+const InvisibleGrillsWindows = lazy(() => import("./pages/services/InvisibleGrillsWindows"));
 const CeilingClothHanger = lazy(() => import("./pages/services/CeilingClothHanger"));
-const PigeonNets = lazy(() => import("./pages/services/PigeonNets"));
-const Hyderabad = lazy(() => import("./pages/locations/Hyderabad"));
-const Vizag = lazy(() => import("./pages/locations/Vizag"));
-const Warangal = lazy(() => import("./pages/locations/Warangal"));
-const Chittoor = lazy(() => import("./pages/locations/Chittoor"));
+const Visakhapatnam = lazy(() => import("./pages/locations/Visakhapatnam"));
+const Vijayawada = lazy(() => import("./pages/locations/Vijayawada"));
+const Guntur = lazy(() => import("./pages/locations/Guntur"));
+const Tirupati = lazy(() => import("./pages/locations/Tirupati"));
+const Ongole = lazy(() => import("./pages/locations/Ongole"));
 const Rajahmundry = lazy(() => import("./pages/locations/Rajahmundry"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -44,14 +47,17 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/services/invisible-grills" element={<InvisibleGrills />} />
-              <Route path="/services/safety-nets" element={<SafetyNets />} />
+              <Route path="/services/invisible-grills-balcony" element={<InvisibleGrillsBalcony />} />
+              <Route path="/services/invisible-grills-windows" element={<InvisibleGrillsWindows />} />
               <Route path="/services/ceiling-cloth-hanger" element={<CeilingClothHanger />} />
-              <Route path="/services/pigeon-nets" element={<PigeonNets />} />
-              <Route path="/locations/hyderabad" element={<Hyderabad />} />
-              <Route path="/locations/vizag" element={<Vizag />} />
-              <Route path="/locations/warangal" element={<Warangal />} />
-              <Route path="/locations/chittoor" element={<Chittoor />} />
+              <Route path="/locations/visakhapatnam" element={<Visakhapatnam />} />
+              <Route path="/locations/vijayawada" element={<Vijayawada />} />
+              <Route path="/locations/guntur" element={<Guntur />} />
+              <Route path="/locations/tirupati" element={<Tirupati />} />
+              <Route path="/locations/ongole" element={<Ongole />} />
               <Route path="/locations/rajahmundry" element={<Rajahmundry />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

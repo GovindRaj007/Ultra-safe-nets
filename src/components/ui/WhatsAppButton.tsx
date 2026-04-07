@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Phone } from "lucide-react";
 
 // WhatsApp icon component
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -8,20 +10,56 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 const WhatsAppButton = () => {
+  const [isWhatsApp, setIsWhatsApp] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsWhatsApp((prev) => !prev);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const bgColor = isWhatsApp ? "bg-[#25D366]" : "bg-white";
+  const textColor = isWhatsApp ? "text-white" : "text-navy";
+  const href = isWhatsApp 
+    ? "https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20Urban%20Invisible%20Grills%20services.%20Please%20share%20more%20details%20about%20your%20invisible%20grills%20and%20safety%20solutions."
+    : "tel:+917075232499";
+  const label = isWhatsApp ? "Chat on WhatsApp" : "Call Us";
+
   return (
     <motion.a
-      href="https://wa.me/919788318444?text=Hi%2C%20I%27m%20interested%20in%20UltraSafe%20Grills%20%26%20Nets%20services.%20Please%20share%20more%20details%20about%20your%20invisible%20grills%20and%20safety%20nets."
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+      href={href}
+      target={isWhatsApp ? "_blank" : "_self"}
+      rel={isWhatsApp ? "noopener noreferrer" : ""}
+      className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 ${bgColor} ${textColor} px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all`}
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      aria-label="Chat on WhatsApp"
+      aria-label={label}
     >
-      <WhatsAppIcon className="w-6 h-6" />
-      <span className="hidden sm:inline font-medium">WhatsApp</span>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={isWhatsApp ? "whatsapp" : "phone"}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 20 }}
+          transition={{ duration: 0.3 }}
+          className="flex items-center gap-2"
+        >
+          {isWhatsApp ? (
+            <>
+              <WhatsAppIcon className="w-6 h-6" />
+              <span className="hidden sm:inline font-medium">WhatsApp</span>
+            </>
+          ) : (
+            <>
+              <Phone className="w-6 h-6" />
+              <span className="hidden sm:inline font-medium">Call</span>
+            </>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </motion.a>
   );
 };

@@ -66,16 +66,16 @@ const InvisibleGrills = () => {
   return (
     <>
       <Helmet>
-        <title>Invisible Grills Installation | Stainless Steel Window Grills | Ultra Safe</title>
+        <title>Invisible Grills Installation | Stainless Steel Window Grills | Urban Invisible Grills</title>
         <meta
           name="description"
-          content="Premium invisible grills installation in Hyderabad, Vizag & across Telangana. Child-safe SS316 stainless steel balcony grills. Get free quote. Call +91 97883 18444."
+          content="Premium invisible grills installation across Andhra Pradesh. Child-safe SS316 stainless steel grills for balconies and windows. Get free quote. Call +91 7075 232499!"
         />
         <meta
           name="keywords"
-          content="invisible grills, stainless steel grills, balcony safety grills, window grills, child safety grills, SS316 grills, Hyderabad"
+          content="invisible grills, stainless steel grills, balcony safety grills, window grills, child safety grills, SS316 grills, Andhra Pradesh"
         />
-        <link rel="canonical" href="https://ultrasafegrills.com/services/invisible-grills" />
+        <link rel="canonical" href="https://urbanigrills.com/services/invisible-grills" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -83,10 +83,10 @@ const InvisibleGrills = () => {
             "name": "Invisible Grills Installation",
             "provider": {
               "@type": "LocalBusiness",
-              "name": "Ultra Safe Grills & Nets"
+              "name": "Urban Invisible Grills"
             },
             "description": "Premium invisible grills made from SS316 stainless steel for windows and balconies",
-            "areaServed": ["Hyderabad", "Visakhapatnam", "Warangal", "Chittoor", "Rajahmundry"]
+            "areaServed": ["Andhra Pradesh", "Visakhapatnam", "Rajahmundry", "Vijayawada", "Guntur", "Tirupati", "Ongole"]
           })}
         </script>
       </Helmet>
@@ -113,7 +113,9 @@ const InvisibleGrills = () => {
               <nav className="flex items-center gap-2 text-sm text-primary-foreground/60 mb-6">
                 <Link to="/" className="hover:text-primary-foreground">Home</Link>
                 <span>/</span>
-                <Link to="/services/invisible-grills" className="text-primary-foreground">Invisible Grills</Link>
+                <Link to="/#services" className="hover:text-primary-foreground">Services</Link>
+                <span>/</span>
+                <span className="text-primary-foreground">Invisible Grills</span>
               </nav>
               <span className="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-full text-sm font-bold mb-4">
                 10% OFF - Limited Offer
@@ -127,7 +129,7 @@ const InvisibleGrills = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-hero">Get Free Quote</Link>
-                <a href="tel:+919788318444" className="btn-hero-outline">
+                <a href="tel:+917075232499" className="btn-hero-outline">
                   <Phone className="w-5 h-5" /> Call Now
                 </a>
               </div>
@@ -220,8 +222,8 @@ const InvisibleGrills = () => {
               <Link to="/contact" className="btn-hero bg-background text-foreground">
                 Schedule Free Visit
               </Link>
-              <a href="tel:+919788318444" className="btn-hero-outline border-primary-foreground/30">
-                <Phone className="w-5 h-5" /> +91 97883 18444
+              <a href="tel:+917075232499" className="btn-hero-outline border-primary-foreground/30">
+                <Phone className="w-5 h-5" /> +91 7075 232499
               </a>
             </div>
           </div>
