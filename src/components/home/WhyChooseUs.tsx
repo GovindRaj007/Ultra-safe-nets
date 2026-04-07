@@ -28,7 +28,7 @@ const stats = [
   { value: "5000+", label: "Projects Completed" },
   { value: "6+", label: "Years Experience" },
   { value: "98%", label: "Customer Satisfaction" },
-  { value: "5", label: "Cities Covered" },
+  { value: "8", label: "Cities Covered" },
 ];
 
 const WhyChooseUs = () => {
