@@ -10,12 +10,12 @@ const PrivacyPolicy = () => {
           name="description"
           content="Privacy policy for Urban Invisible Grills. Learn how we protect your personal information and handle data."
         />
-        <link rel="canonical" href="https://urbanigrills.com/privacy-policy" />
+        <link rel="canonical" href="https://urbansafetygrills.in/privacy-policy" />
         <meta property="og:title" content="Privacy Policy | Urban Invisible Grills" />
         <meta property="og:description" content="Privacy policy for Urban Invisible Grills. Learn how we protect your personal information." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://urbanigrills.com/privacy-policy" />
-        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta property="og:url" content="https://urbansafetygrills.in/privacy-policy" />
+        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />
       </Helmet>
 
       <Layout>
@@ -33,7 +33,7 @@ const PrivacyPolicy = () => {
               <section>
                 <h2 className="text-2xl font-bold text-navy mt-8 mb-4">1. Introduction</h2>
                 <p>
-                  Urban Invisible Grills ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at urbanigrills.com (the "Site").
+                  Urban Invisible Grills ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at urbansafetygrills.in (the "Site").
                 </p>
               </section>
 

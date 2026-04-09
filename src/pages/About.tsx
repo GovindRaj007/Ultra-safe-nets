@@ -36,16 +36,16 @@ const About = () => {
           name="description"
           content="Learn about Urban Invisible Grills - India's trusted invisible grill specialists. 6+ years experience, 5000+ projects completed across Andhra Pradesh."
         />
-        <link rel="canonical" href="https://urbanigrills.com/about" />
+        <link rel="canonical" href="https://urbansafetygrills.in/about" />
         <meta property="og:title" content="About Urban Invisible Grills | Premium Safety Solutions Provider" />
         <meta property="og:description" content="Learn about Urban Invisible Grills - India's trusted invisible grill specialists with 6+ years experience and 5000+ projects completed." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://urbanigrills.com/about" />
-        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta property="og:url" content="https://urbansafetygrills.in/about" />
+        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About Urban Invisible Grills" />
         <meta name="twitter:description" content="Learn about Urban Invisible Grills - India's trusted invisible grill specialists." />
-        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta name="twitter:image" content="https://urbansafetygrills.in/favicon.jpg" />
       </Helmet>
       
       <Layout>

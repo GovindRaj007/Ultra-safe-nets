@@ -1,5 +1,5 @@
 # Sitemap
-Sitemap: https://urbanigrills.com/sitemap.xml
+Sitemap: https://urbansafetygrills.in/sitemap.xml
 
 # Google
 User-agent: Googlebot

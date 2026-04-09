@@ -75,16 +75,16 @@ const Contact = () => {
           name="description"
           content="Contact Urban Invisible Grills for invisible grills and premium safety solutions across Andhra Pradesh. Free consultation, site visit & quotation. Call +91 7075 232499."
         />
-        <link rel="canonical" href="https://urbanigrills.com/contact" />
+        <link rel="canonical" href="https://urbansafetygrills.in/contact" />
         <meta property="og:title" content="Contact Urban Invisible Grills | Get Free Quote" />
         <meta property="og:description" content="Contact us for free consultation and quotation for invisible grills and safety solutions. Call +91 7075 232499." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://urbanigrills.com/contact" />
-        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta property="og:url" content="https://urbansafetygrills.in/contact" />
+        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contact Urban Invisible Grills | Free Quote" />
         <meta name="twitter:description" content="Free consultation and quotation for invisible grills and safety solutions." />
-        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta name="twitter:image" content="https://urbansafetygrills.in/favicon.jpg" />
       </Helmet>
       
       <Layout>
@@ -228,8 +228,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-white/70 mb-1">Email</h3>
-                        <a href="mailto:info@urbanigrills.com" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                          info@urbanigrills.com
+                        <a href="mailto:info@urbansafetygrills.in" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                          info@urbansafetygrills.in
                         </a>
                       </div>
                     </div>

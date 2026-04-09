@@ -101,7 +101,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@urbanigrills.com" className="flex items-start gap-3 text-muted-foreground hover:text-primary-foreground transition-colors">
+                <a href="mailto:info@urbansafetygrills.in" className="flex items-start gap-3 text-muted-foreground hover:text-primary-foreground transition-colors">
                   <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
                   <span>urbaninvisiblegrills.ap@gmail.com</span>
                 </a>

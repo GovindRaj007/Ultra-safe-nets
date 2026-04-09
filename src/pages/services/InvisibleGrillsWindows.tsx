@@ -75,16 +75,16 @@ const InvisibleGrillsWindows = () => {
           name="keywords"
           content="window invisible grills, child-safe window grills, window safety grills, stainless steel window grills, Andhra Pradesh"
         />
-        <link rel="canonical" href="https://urbanigrills.com/services/invisible-grills-windows" />
+        <link rel="canonical" href="https://urbansafetygrills.in/services/invisible-grills-windows" />
         <meta property="og:title" content="Window Invisible Grills | Child-Safe Window Protection" />
         <meta property="og:description" content="Child-safe window protection with invisible grills. Premium SS316 stainless steel cables for security without blocking light. Get free quote." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://urbanigrills.com/services/invisible-grills-windows" />
-        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta property="og:url" content="https://urbansafetygrills.in/services/invisible-grills-windows" />
+        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Window Invisible Grills | Child-Safe Protection" />
         <meta name="twitter:description" content="Child-safe window protection with invisible grills - security without blocking light." />
-        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta name="twitter:image" content="https://urbansafetygrills.in/favicon.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

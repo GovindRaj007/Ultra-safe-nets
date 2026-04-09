@@ -10,11 +10,11 @@ const TermsOfService = () => {
           name="description"
           content="Terms of service for Urban Invisible Grills. Read our terms and conditions for using our website and services."
         />
-        <link rel="canonical" href="https://urbanigrills.com/terms-of-service" />        <meta property="og:title" content="Terms of Service | Urban Invisible Grills" />
+        <link rel="canonical" href="https://urbansafetygrills.in/terms-of-service" />        <meta property="og:title" content="Terms of Service | Urban Invisible Grills" />
         <meta property="og:description" content="Terms of Service for Urban Invisible Grills. Read our terms and conditions." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://urbanigrills.com/terms-of-service" />
-        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />      </Helmet>
+        <meta property="og:url" content="https://urbansafetygrills.in/terms-of-service" />
+        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />      </Helmet>
 
       <Layout>
         <div className="container-custom section-padding py-20">
@@ -31,7 +31,7 @@ const TermsOfService = () => {
               <section>
                 <h2 className="text-2xl font-bold text-navy mt-8 mb-4">1. Agreement to Terms</h2>
                 <p>
-                  By accessing and using the Urban Invisible Grills website (urbanigrills.com), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                  By accessing and using the Urban Invisible Grills website (urbansafetygrills.in), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
                 </p>
               </section>
 

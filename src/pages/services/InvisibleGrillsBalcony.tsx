@@ -75,16 +75,16 @@ const InvisibleGrillsBalcony = () => {
           name="keywords"
           content="balcony invisible grills, balcony safety grills, stainless steel balcony protection, child-safe balcony grills, Andhra Pradesh"
         />
-        <link rel="canonical" href="https://urbanigrills.com/services/invisible-grills-balcony" />
+        <link rel="canonical" href="https://urbansafetygrills.in/services/invisible-grills-balcony" />
         <meta property="og:title" content="Balcony Invisible Grills | Premium Balcony Protection" />
         <meta property="og:description" content="Premium invisible grills for balconies. Maintain views while ensuring complete family safety. SS316 stainless steel with 10-year warranty." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://urbanigrills.com/services/invisible-grills-balcony" />
-        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta property="og:url" content="https://urbansafetygrills.in/services/invisible-grills-balcony" />
+        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Balcony Invisible Grills | Premium Protection" />
         <meta name="twitter:description" content="Premium invisible grills for balconies - maintain views with complete safety." />
-        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta name="twitter:image" content="https://urbansafetygrills.in/favicon.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

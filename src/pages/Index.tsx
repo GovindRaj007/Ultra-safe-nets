@@ -21,17 +21,17 @@ const Index = () => {
           name="keywords"
           content="invisible grills, balcony safety, child safety, ceiling cloth hanger, Andhra Pradesh, Visakhapatnam, Rajahmundry, Vijayawada, Guntur, Tirupati, Ongole, stainless steel grills"
         />
-        <link rel="canonical" href="https://urbanigrills.com" />
+        <link rel="canonical" href="https://urbansafetygrills.in" />
         <meta property="og:title" content="Urban Invisible Grills | Premium Safety Solutions" />
         <meta property="og:description" content="India's premium invisible grill specialists. Protect your home with style and security." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://urbanigrills.com" />
-        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta property="og:url" content="https://urbansafetygrills.in" />
+        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Urban Invisible Grills | Premium Safety Solutions" />
         <meta name="twitter:description" content="India's premium invisible grill specialists. Protect your home with style and security." />
-        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta name="twitter:image" content="https://urbansafetygrills.in/favicon.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
