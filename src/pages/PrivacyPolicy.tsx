@@ -11,6 +11,11 @@ const PrivacyPolicy = () => {
           content="Privacy policy for Urban Invisible Grills. Learn how we protect your personal information and handle data."
         />
         <link rel="canonical" href="https://urbanigrills.com/privacy-policy" />
+        <meta property="og:title" content="Privacy Policy | Urban Invisible Grills" />
+        <meta property="og:description" content="Privacy policy for Urban Invisible Grills. Learn how we protect your personal information." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://urbanigrills.com/privacy-policy" />
+        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
       </Helmet>
 
       <Layout>
@@ -114,7 +119,7 @@ const PrivacyPolicy = () => {
                   <p><strong>Urban Invisible Grills</strong></p>
                   <p>Email: urbaninvisiblegrills.ap@gmail.com</p>
                   <p>Phone: +91 7075 232499</p>
-                  <p>Address: Address</p>
+                  <p>Address: 61-19-21/6, A Challa Rao St, Ramalingeswara Nagar, Vijayawada, Andhra Pradesh 520013</p>
                 </div>
               </section>
             </div>

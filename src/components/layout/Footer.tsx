@@ -108,7 +108,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>Address</span>
+                <span>61-19-21/6, A Challa Rao St, Ramalingeswara Nagar, Vijayawada, AP 520013</span>
               </li>
               <li className="flex items-start gap-3 text-muted-foreground">
                 <Clock className="w-5 h-5 mt-0.5 flex-shrink-0" />

@@ -26,6 +26,12 @@ const Index = () => {
         <meta property="og:description" content="India's premium invisible grill specialists. Protect your home with style and security." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://urbanigrills.com" />
+        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Urban Invisible Grills | Premium Safety Solutions" />
+        <meta name="twitter:description" content="India's premium invisible grill specialists. Protect your home with style and security." />
+        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -34,8 +40,9 @@ const Index = () => {
             "description": "Premium invisible grills and complete home safety solutions across Andhra Pradesh",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Address",
-              "addressLocality": "Address",
+              "streetAddress": "61-19-21/6, A Challa Rao St, Ramalingeswara Nagar",
+              "addressLocality": "Vijayawada",
+              "postalCode": "520013",
               "addressRegion": "Andhra Pradesh",
               "addressCountry": "IN"
             },

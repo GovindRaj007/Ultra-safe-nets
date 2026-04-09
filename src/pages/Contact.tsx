@@ -76,6 +76,15 @@ const Contact = () => {
           content="Contact Urban Invisible Grills for invisible grills and premium safety solutions across Andhra Pradesh. Free consultation, site visit & quotation. Call +91 7075 232499."
         />
         <link rel="canonical" href="https://urbanigrills.com/contact" />
+        <meta property="og:title" content="Contact Urban Invisible Grills | Get Free Quote" />
+        <meta property="og:description" content="Contact us for free consultation and quotation for invisible grills and safety solutions. Call +91 7075 232499." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://urbanigrills.com/contact" />
+        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Urban Invisible Grills | Free Quote" />
+        <meta name="twitter:description" content="Free consultation and quotation for invisible grills and safety solutions." />
+        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
       </Helmet>
       
       <Layout>
@@ -231,7 +240,9 @@ const Contact = () => {
                       <div>
                         <h3 className="font-semibold text-white/70 mb-1">Address</h3>
                         <p className="text-muted-foreground">
-                          Address
+                          61-19-21/6, A Challa Rao St,<br />
+                          Ramalingeswara Nagar, Vijayawada<br />
+                          Andhra Pradesh 520013
                         </p>
                       </div>
                     </div>
@@ -272,9 +283,9 @@ const Contact = () => {
                 {/* Map Section */}
                 <div className="glass-card overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.5!2d78.5237!3d17.3596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99c1a0c7a1a1%3A0x0!2sAndhra%20Pradesh%2C%20India!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.705279486646!2d80.6518524!3d16.490454400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fb005a5e982d%3A0x48113430946707dd!2s61-19-21%2F6%2C%20A%20Challa%20Rao%20St%2C%20Ramalingeswara%20Nagar%2C%20Vijayawada!5e0!3m2!1sen!2sin!4v1775703909125!5m2!1sen!2sin"
                     width="100%"
-                    height="250"
+                    height="350"
                     style={{ border: 0 }}
                     allowFullScreen
                     loading="lazy"

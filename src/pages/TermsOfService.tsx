@@ -10,8 +10,11 @@ const TermsOfService = () => {
           name="description"
           content="Terms of service for Urban Invisible Grills. Read our terms and conditions for using our website and services."
         />
-        <link rel="canonical" href="https://urbanigrills.com/terms-of-service" />
-      </Helmet>
+        <link rel="canonical" href="https://urbanigrills.com/terms-of-service" />        <meta property="og:title" content="Terms of Service | Urban Invisible Grills" />
+        <meta property="og:description" content="Terms of Service for Urban Invisible Grills. Read our terms and conditions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://urbanigrills.com/terms-of-service" />
+        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />      </Helmet>
 
       <Layout>
         <div className="container-custom section-padding py-20">
@@ -143,7 +146,7 @@ const TermsOfService = () => {
                   <p><strong>Urban Invisible Grills</strong></p>
                   <p>Email: urbaninvisiblegrills.ap@gmail.com</p>
                   <p>Phone: +91 7075 232499</p>
-                  <p>Address: Address</p>
+                  <p>Address: 61-19-21/6, A Challa Rao St, Ramalingeswara Nagar, Vijayawada, Andhra Pradesh 520013</p>
                 </div>
               </section>
             </div>

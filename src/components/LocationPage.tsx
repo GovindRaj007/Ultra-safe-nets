@@ -34,6 +34,18 @@ const LocationPage = ({ city, state, description, areas, slug, backgroundImage }
           content={`invisible grills ${city}, balcony grills ${city}, window grills ${city}, child safety grills ${city}, stainless steel grills ${city}`}
         />
         <link rel="canonical" href={`https://urbanigrills.com/locations/${slug}`} />
+        <meta property="og:title" content={`Invisible Grills Installation in ${city} | Urban Invisible Grills`} />
+        <meta
+          property="og:description"
+          content={`Premium invisible grills installation in ${city}. Child-safe, rust-proof stainless steel grills. Call +91 7075 232499.`}
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://urbanigrills.com/locations/${slug}`} />
+        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Invisible Grills in ${city}`} />
+        <meta name="twitter:description" content={`Premium invisible grills installation in ${city}.`} />
+        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

@@ -7,6 +7,7 @@ import {
   Drawer,
   DrawerContent,
   DrawerTrigger,
+  DrawerTitle,
 } from "@/components/ui/drawer";
 
 const services = [
@@ -98,7 +99,7 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
-              <span>Address</span>
+              <span>61-19-21/6, A Challa Rao St, Ramalingeswara Nagar, Vijayawada, AP 520013</span>
             </div>
           </div>
         </div>
@@ -257,7 +258,8 @@ const Header = () => {
                       <Menu className="w-6 h-6" />
                     </button>
                   </DrawerTrigger>
-                  <DrawerContent className="bg-gradient-to-b from-navy to-navy-light border-t border-white/10">
+                  <DrawerContent className="bg-gradient-to-b from-navy to-navy-light border-t border-white/10 rounded-t-3xl">
+                    <DrawerTitle className="sr-only">Navigation Menu</DrawerTitle>
                     <div className="container-custom px-4 py-3 space-y-2">
                       <Link to="/" onClick={handleHomeClick} className="block py-2 px-4 rounded-lg text-white hover:bg-white/10 transition-colors">
                         Home

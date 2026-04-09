@@ -76,6 +76,15 @@ const InvisibleGrills = () => {
           content="invisible grills, stainless steel grills, balcony safety grills, window grills, child safety grills, SS316 grills, Andhra Pradesh"
         />
         <link rel="canonical" href="https://urbanigrills.com/services/invisible-grills" />
+        <meta property="og:title" content="Invisible Grills Installation | Premium Safety Solutions" />
+        <meta property="og:description" content="Premium invisible grills made from SS316 stainless steel for windows and balconies. Child-safe, rust-proof. Get free quote across Andhra Pradesh." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://urbanigrills.com/services/invisible-grills" />
+        <meta property="og:image" content="https://urbanigrills.com/favicon.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Invisible Grills Installation | Premium Safety" />
+        <meta name="twitter:description" content="Premium SS316 stainless steel invisible grills for safety and style." />
+        <meta name="twitter:image" content="https://urbanigrills.com/favicon.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
