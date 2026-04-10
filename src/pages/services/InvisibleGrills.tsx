@@ -92,7 +92,9 @@ const InvisibleGrills = () => {
             "name": "Invisible Grills Installation",
             "provider": {
               "@type": "LocalBusiness",
-              "name": "Urban Invisible Grills"
+              "name": "Urban Invisible Grills",
+              "telephone": "+91-7075232499",
+              "email": "urbaninvisiblegrills.ap@gmail.com"
             },
             "description": "Premium invisible grills made from SS316 stainless steel for windows and balconies",
             "areaServed": ["Andhra Pradesh", "Visakhapatnam", "Rajahmundry", "Vijayawada", "Guntur", "Tirupati", "Ongole"]

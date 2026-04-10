@@ -75,6 +75,10 @@ const Contact = () => {
           name="description"
           content="Contact Urban Invisible Grills for invisible grills and premium safety solutions across Andhra Pradesh. Free consultation, site visit & quotation. Call +91 7075 232499."
         />
+        <meta
+          name="keywords"
+          content="contact us, free quote, invisible grills consultation, price inquiry, installation services, customer support, Andhra Pradesh"
+        />
         <link rel="canonical" href="https://urbansafetygrills.in/contact" />
         <meta property="og:title" content="Contact Urban Invisible Grills | Get Free Quote" />
         <meta property="og:description" content="Contact us for free consultation and quotation for invisible grills and safety solutions. Call +91 7075 232499." />
@@ -228,8 +232,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-white/70 mb-1">Email</h3>
-                        <a href="mailto:info@urbansafetygrills.in" className="text-muted-foreground hover:text-primary-foreground transition-colors">
-                          info@urbansafetygrills.in
+                        <a href="mailto:urbaninvisiblegrills.ap@gmail.com" className="text-muted-foreground hover:text-primary-foreground transition-colors">
+                          urbaninvisiblegrills.ap@gmail.com
                         </a>
                       </div>
                     </div>

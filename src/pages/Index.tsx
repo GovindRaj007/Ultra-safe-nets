@@ -47,6 +47,7 @@ const Index = () => {
               "addressCountry": "IN"
             },
             "telephone": "+91-7075232499",
+            "email": "urbaninvisiblegrills.ap@gmail.com",
             "priceRange": "$$",
             "openingHours": "Mo-Sa 09:00-19:00",
             "areaServed": ["Andhra Pradesh", "Visakhapatnam", "Rajahmundry", "Vijayawada", "Guntur", "Tirupati", "Ongole"]

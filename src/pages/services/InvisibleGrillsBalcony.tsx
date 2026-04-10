@@ -92,7 +92,9 @@ const InvisibleGrillsBalcony = () => {
             "name": "Invisible Grills for Balconies",
             "provider": {
               "@type": "LocalBusiness",
-              "name": "Urban Invisible Grills"
+              "name": "Urban Invisible Grills",
+              "telephone": "+91-7075232499",
+              "email": "urbaninvisiblegrills.ap@gmail.com"
             },
             "description": "Premium invisible grills installation for balconies across Andhra Pradesh",
             "areaServed": ["Andhra Pradesh", "Visakhapatnam", "Rajahmundry", "Vijayawada", "Guntur", "Tirupati", "Ongole"]

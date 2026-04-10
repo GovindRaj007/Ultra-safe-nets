@@ -72,6 +72,21 @@ const CeilingClothHanger = () => {
         <meta name="twitter:title" content="Ceiling Cloth Hanger | Space-Saving Solution" />
         <meta name="twitter:description" content="Space-saving ceiling clothes hangers with pulley system. Stainless steel and rust-proof." />
         <meta name="twitter:image" content="https://urbansafetygrills.in/favicon.jpg" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Ceiling Cloth Hanger Installation",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Urban Invisible Grills",
+              "telephone": "+91-7075232499",
+              "email": "urbaninvisiblegrills.ap@gmail.com"
+            },
+            "description": "Space-saving ceiling-mounted clothes drying hanger with pulley system",
+            "areaServed": ["Andhra Pradesh", "Visakhapatnam", "Rajahmundry", "Vijayawada", "Guntur", "Tirupati", "Ongole"]
+          })}
+        </script>
       </Helmet>
       
       <Layout>

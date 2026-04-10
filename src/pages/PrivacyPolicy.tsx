@@ -10,6 +10,10 @@ const PrivacyPolicy = () => {
           name="description"
           content="Privacy policy for Urban Invisible Grills. Learn how we protect your personal information and handle data."
         />
+        <meta
+          name="keywords"
+          content="privacy policy, data protection, personal information, confidentiality, terms and conditions"
+        />
         <link rel="canonical" href="https://urbansafetygrills.in/privacy-policy" />
         <meta property="og:title" content="Privacy Policy | Urban Invisible Grills" />
         <meta property="og:description" content="Privacy policy for Urban Invisible Grills. Learn how we protect your personal information." />

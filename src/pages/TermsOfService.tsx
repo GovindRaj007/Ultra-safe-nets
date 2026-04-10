@@ -10,11 +10,17 @@ const TermsOfService = () => {
           name="description"
           content="Terms of service for Urban Invisible Grills. Read our terms and conditions for using our website and services."
         />
-        <link rel="canonical" href="https://urbansafetygrills.in/terms-of-service" />        <meta property="og:title" content="Terms of Service | Urban Invisible Grills" />
+        <meta
+          name="keywords"
+          content="terms of service, terms and conditions, service agreement, usage policy, legal terms"
+        />
+        <link rel="canonical" href="https://urbansafetygrills.in/terms-of-service" />
+        <meta property="og:title" content="Terms of Service | Urban Invisible Grills" />
         <meta property="og:description" content="Terms of Service for Urban Invisible Grills. Read our terms and conditions." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://urbansafetygrills.in/terms-of-service" />
-        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />      </Helmet>
+        <meta property="og:image" content="https://urbansafetygrills.in/favicon.jpg" />
+      </Helmet>
 
       <Layout>
         <div className="container-custom section-padding py-20">

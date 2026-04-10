@@ -59,6 +59,7 @@ const LocationPage = ({ city, state, description, areas, slug, backgroundImage }
               "addressCountry": "IN"
             },
             "telephone": "+91-7075232499",
+            "email": "urbaninvisiblegrills.ap@gmail.com",
             "areaServed": city
           })}
         </script>

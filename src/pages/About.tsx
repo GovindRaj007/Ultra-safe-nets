@@ -36,6 +36,10 @@ const About = () => {
           name="description"
           content="Learn about Urban Invisible Grills - India's trusted invisible grill specialists. 6+ years experience, 5000+ projects completed across Andhra Pradesh."
         />
+        <meta
+          name="keywords"
+          content="Urban Invisible Grills, about us, invisible grill company, stainless steel grills provider, safety solutions provider, Andhra Pradesh, family safety"
+        />
         <link rel="canonical" href="https://urbansafetygrills.in/about" />
         <meta property="og:title" content="About Urban Invisible Grills | Premium Safety Solutions Provider" />
         <meta property="og:description" content="Learn about Urban Invisible Grills - India's trusted invisible grill specialists with 6+ years experience and 5000+ projects completed." />
