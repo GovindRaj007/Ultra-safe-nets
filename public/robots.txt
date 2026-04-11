@@ -1,31 +1,32 @@
-# Sitemap
-Sitemap: https://urbansafetygrills.in/sitemap.xml
-
-# Google
 User-agent: Googlebot
 Allow: /
+Allow: *.js
+Allow: *.css
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.gif
+Allow: *.svg
+Allow: *.webp
+Disallow: /admin/
+Disallow: /private/
 Crawl-delay: 0
 
-# Bing
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# Twitter
 User-agent: Twitterbot
 Allow: /
 
-# Facebook
 User-agent: facebookexternalhit
 Allow: /
 
-# Default
 User-agent: *
 Allow: /
-Crawl-delay: 1
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 2
 
-# Disallow private/admin areas (if any)
-Disallow: /admin
-Disallow: /*.json$
-Disallow: /*?*sort=
-Disallow: /*?*page=
+# Sitemap location for search engines
+Sitemap: https://urbansafetygrills.in/sitemap.xml
