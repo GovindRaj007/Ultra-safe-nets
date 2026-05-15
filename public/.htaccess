@@ -15,9 +15,9 @@
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # Remove www if present
-    RewriteCond %{HTTP_HOST} ^www\.
-    RewriteRule ^(.*)$ https://%{HTTP_HOST:www.}/$1 [R=301,L]
+    # Remove www (redirect to non-www)
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
     # SPA Routing: Send all requests to index.html except for existing files/folders
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -30,7 +30,7 @@
 # =====================================================================
 <IfModule mod_headers.c>
     # Content Security Policy - Allow images from self and HTTPS sources
-    Header set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com https://www.googletagmanager.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https: https://maps.google.com https://maps.googleapis.com https://khms.googleapis.com; connect-src 'self' https: https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://maps.googleapis.com; frame-src https://www.googletagmanager.com https://maps.google.com https://maps.googleapis.com; frame-ancestors 'none'; base-uri 'self';"
+    Header set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com https://www.googletagmanager.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https: https://maps.google.com https://maps.googleapis.com https://khms.googleapis.com; connect-src 'self' https: https://www.google-analytics.com https://www.googletagmanager.com https://analytics.google.com https://maps.googleapis.com; frame-src https://www.googletagmanager.com https://maps.google.com https://maps.googleapis.com https://www.google.com; frame-ancestors 'none'; base-uri 'self';"
 
     # Prevent clickjacking attacks
     Header set X-Frame-Options "DENY"

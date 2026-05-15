@@ -29,6 +29,9 @@ const WhatsAppButton = () => {
   return (
     <motion.a
       href={href}
+      data-track="true"
+      data-track-type={isWhatsApp ? "whatsapp" : "call"}
+      data-track-url={href}
       target={isWhatsApp ? "_blank" : "_self"}
       rel={isWhatsApp ? "noopener noreferrer" : ""}
       className={`fixed bottom-6 right-6 z-50 flex items-center gap-2 ${bgColor} ${textColor} px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all`}

@@ -75,6 +75,7 @@ const InvisibleGrillsBalcony = () => {
           name="keywords"
           content="balcony invisible grills, balcony safety grills, stainless steel balcony protection, child-safe balcony grills, Andhra Pradesh"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://urbansafetygrills.in/services/invisible-grills-balcony" />
         <meta property="og:title" content="Balcony Invisible Grills | Premium Balcony Protection" />
         <meta property="og:description" content="Premium invisible grills for balconies. Maintain views while ensuring complete family safety. SS316 stainless steel with 10-year warranty." />
@@ -140,7 +141,13 @@ const InvisibleGrillsBalcony = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-hero">Get Free Quote</Link>
-                <a href="tel:+917075232499" className="btn-hero-outline">
+                <a 
+                  href="tel:+917075232499"
+                  data-track="true"
+                  data-track-type="call"
+                  data-track-url="tel:+917075232499"
+                  className="btn-hero-outline"
+                >
                   <Phone className="w-5 h-5" /> Call Now
                 </a>
               </div>
@@ -235,7 +242,13 @@ const InvisibleGrillsBalcony = () => {
               <Link to="/contact" className="btn-hero bg-background text-foreground">
                 Schedule Free Visit
               </Link>
-              <a href="tel:+917075232499" className="btn-hero-outline border-primary-foreground/30">
+              <a 
+                href="tel:+917075232499"
+                data-track="true"
+                data-track-type="call"
+                data-track-url="tel:+917075232499"
+                className="btn-hero-outline border-primary-foreground/30"
+              >
                 <Phone className="w-5 h-5" /> +91 7075 232499
               </a>
             </div>

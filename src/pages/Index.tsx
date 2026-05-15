@@ -21,6 +21,7 @@ const Index = () => {
           name="keywords"
           content="invisible grills, balcony safety, child safety, ceiling cloth hanger, Andhra Pradesh, Visakhapatnam, Rajahmundry, Vijayawada, Guntur, Tirupati, Ongole, stainless steel grills"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://urbansafetygrills.in" />
         <meta property="og:title" content="Urban Invisible Grills | Premium Safety Solutions" />
         <meta property="og:description" content="India's premium invisible grill specialists. Protect your home with style and security." />

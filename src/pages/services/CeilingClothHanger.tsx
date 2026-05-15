@@ -62,6 +62,7 @@ const CeilingClothHanger = () => {
           name="description"
           content="Premium ceiling cloth hanger installation in Hyderabad. Space-saving pulley system for modern apartments. Stainless steel, rust-proof. Call +91 7075 232499."
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://urbansafetygrills.in/services/ceiling-cloth-hanger" />
         <meta property="og:title" content="Ceiling Cloth Hanger | Space-Saving Laundry Solution" />
         <meta property="og:description" content="Ceiling-mounted clothes drying hangers with pulley system. Stainless steel, rust-proof, space-saving solution for modern apartments." />
@@ -119,7 +120,15 @@ const CeilingClothHanger = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-hero">Get Free Quote</Link>
-                <a href="tel:+917075232499" className="btn-hero-outline"><Phone className="w-5 h-5" /> Call Now</a>
+                <a 
+                  href="tel:+917075232499"
+                  data-track="true"
+                  data-track-type="call"
+                  data-track-url="tel:+917075232499"
+                  className="btn-hero-outline"
+                >
+                  <Phone className="w-5 h-5" /> Call Now
+                </a>
               </div>
             </motion.div>
           </div>

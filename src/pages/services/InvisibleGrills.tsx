@@ -75,6 +75,7 @@ const InvisibleGrills = () => {
           name="keywords"
           content="invisible grills, stainless steel grills, balcony safety grills, window grills, child safety grills, SS316 grills, Andhra Pradesh"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://urbansafetygrills.in/services/invisible-grills" />
         <meta property="og:title" content="Invisible Grills Installation | Premium Safety Solutions" />
         <meta property="og:description" content="Premium invisible grills made from SS316 stainless steel for windows and balconies. Child-safe, rust-proof. Get free quote across Andhra Pradesh." />
@@ -140,7 +141,13 @@ const InvisibleGrills = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-hero">Get Free Quote</Link>
-                <a href="tel:+917075232499" className="btn-hero-outline">
+                <a 
+                  href="tel:+917075232499"
+                  data-track="true"
+                  data-track-type="call"
+                  data-track-url="tel:+917075232499"
+                  className="btn-hero-outline"
+                >
                   <Phone className="w-5 h-5" /> Call Now
                 </a>
               </div>
@@ -233,7 +240,13 @@ const InvisibleGrills = () => {
               <Link to="/contact" className="btn-hero bg-background text-foreground">
                 Schedule Free Visit
               </Link>
-              <a href="tel:+917075232499" className="btn-hero-outline border-primary-foreground/30">
+              <a 
+                href="tel:+917075232499"
+                data-track="true"
+                data-track-type="call"
+                data-track-url="tel:+917075232499"
+                className="btn-hero-outline border-primary-foreground/30"
+              >
                 <Phone className="w-5 h-5" /> +91 7075 232499
               </a>
             </div>

@@ -144,7 +144,19 @@ const HeroSlider = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                India's Premium Safety Grill Specialists
+                <svg 
+                  className="inline-block w-5 h-5 mr-2 text-primary" 
+                  fill="none"
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <polyline points="9 12 11 14 15 10" />
+                </svg>
+                Trusted Grill Specialists in AP
               </motion.span>
               
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
@@ -159,7 +171,10 @@ const HeroSlider = () => {
               
               <div className="flex flex-wrap gap-4">
                 <motion.a 
-                  href="https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20your%20safety%20grills%20and%20nets%20services.%20Please%20provide%20a%20free%20quote." 
+                  href="https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20your%20safety%20grills%20and%20nets%20services.%20Please%20provide%20a%20free%20quote."
+                  data-track="true"
+                  data-track-type="whatsapp"
+                  data-track-url="https://wa.me/917075232499"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-hero"
@@ -169,7 +184,10 @@ const HeroSlider = () => {
                   Request Free Quote
                 </motion.a>
                 <motion.a 
-                  href="tel:+917075232499" 
+                  href="tel:+917075232499"
+                  data-track="true"
+                  data-track-type="call"
+                  data-track-url="tel:+917075232499"
                   className="btn-hero-outline"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

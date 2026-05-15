@@ -33,6 +33,7 @@ const LocationPage = ({ city, state, description, areas, slug, backgroundImage }
           name="keywords"
           content={`invisible grills ${city}, balcony grills ${city}, window grills ${city}, child safety grills ${city}, stainless steel grills ${city}`}
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={`https://urbansafetygrills.in/locations/${slug}`} />
         <meta property="og:title" content={`Invisible Grills Installation in ${city} | Urban Invisible Grills`} />
         <meta
@@ -101,7 +102,13 @@ const LocationPage = ({ city, state, description, areas, slug, backgroundImage }
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/contact" className="btn-hero">Get Free Quote</Link>
-                <a href="tel:+917075232499" className="btn-hero-outline">
+                <a 
+                  href="tel:+917075232499"
+                  data-track="true"
+                  data-track-type="call"
+                  data-track-url="tel:+917075232499"
+                  className="btn-hero-outline"
+                >
                   <Phone className="w-5 h-5" /> +91 7075 232499
                 </a>
               </div>
@@ -244,7 +251,13 @@ const LocationPage = ({ city, state, description, areas, slug, backgroundImage }
               <Link to="/contact" className="btn-hero bg-background text-foreground">
                 Get Free Quote
               </Link>
-              <a href="tel:+917075232499" className="btn-hero-outline border-primary-foreground/30">
+              <a 
+                href="tel:+917075232499"
+                data-track="true"
+                data-track-type="call"
+                data-track-url="tel:+917075232499"
+                className="btn-hero-outline border-primary-foreground/30"
+              >
                 <Phone className="w-5 h-5" /> Call Now
               </a>
             </div>

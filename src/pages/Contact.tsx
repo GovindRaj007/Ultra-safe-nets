@@ -79,6 +79,7 @@ const Contact = () => {
           name="keywords"
           content="contact us, free quote, invisible grills consultation, price inquiry, installation services, customer support, Andhra Pradesh"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://urbansafetygrills.in/contact" />
         <meta property="og:title" content="Contact Urban Invisible Grills | Get Free Quote" />
         <meta property="og:description" content="Contact us for free consultation and quotation for invisible grills and safety solutions. Call +91 7075 232499." />
@@ -221,7 +222,13 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-white/70 mb-1">Phone</h3>
-                        <a href="tel:+917075232499" className="text-muted-foreground hover:text-primary-foreground transition-colors block">
+                        <a 
+                          href="tel:+917075232499"
+                          data-track="true"
+                          data-track-type="call"
+                          data-track-url="tel:+917075232499"
+                          className="text-muted-foreground hover:text-primary-foreground transition-colors block"
+                        >
                           +91 7075 232499
                         </a>
                       </div>
@@ -275,6 +282,9 @@ const Contact = () => {
                   </p>
                   <a
                     href="https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20Urban%20Invisible%20Grills%20services.%20Please%20share%20more%20details%20about%20your%20invisible%20grills%20and%20safety%20solutions."
+                    data-track="true"
+                    data-track-type="whatsapp"
+                    data-track-url="https://wa.me/917075232499"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#128C7E] transition-colors"

@@ -92,7 +92,13 @@ const Header = () => {
         <div className="hidden md:block bg-gradient-to-r from-navy via-navy-light to-navy text-primary-foreground py-1.5">
           <div className="container-custom flex items-center justify-between text-sm">
             <div className="flex items-center gap-6">
-              <a href="tel:+917075232499" className="flex items-center gap-2 hover:text-sky-light transition-colors hover:scale-105 duration-200">
+              <a 
+                href="tel:+917075232499" 
+                data-track="true"
+                data-track-type="call"
+                data-track-url="tel:+917075232499"
+                className="flex items-center gap-2 hover:text-sky-light transition-colors hover:scale-105 duration-200"
+              >
                 <Phone className="w-4 h-4" />
                 +91 7075 232499
               </a>
@@ -111,7 +117,7 @@ const Header = () => {
               {/* Logo */}
               <Link to="/" className="flex items-center gap-2 md:gap-3 group flex-shrink-0">
                 <motion.div 
-                  className="relative w-[16rem] h-[6rem]  lg:w-[17rem] lg:h-[7rem] flex items-center justify-center overflow-hidden rounded-lg shadow-lg"
+                  className="relative w-[211px] h-[5rem]  lg:w-[17rem] lg:h-[6rem] flex items-center justify-center overflow-hidden rounded-lg shadow-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -241,7 +247,10 @@ const Header = () => {
               {/* CTA & Mobile Menu */}
               <div className="flex items-center gap-4">
                 <motion.a 
-                  href="tel:+917075232499" 
+                  href="tel:+917075232499"
+                  data-track="true"
+                  data-track-type="call"
+                  data-track-url="tel:+917075232499"
                   className="hidden md:flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground font-semibold rounded-xl shadow-lg hover:shadow-accent/30 transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -336,12 +345,22 @@ const Header = () => {
                         Contact
                       </Link>
 
-                      <a href="tel:+917075232499" onClick={handleDrawerClose} className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-colors mt-1 mb-2">
+                      <a 
+                        href="tel:+917075232499" 
+                        data-track="true"
+                        data-track-type="call"
+                        data-track-url="tel:+917075232499"
+                        onClick={handleDrawerClose} 
+                        className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-white/10 text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 transition-colors mt-1 mb-2"
+                      >
                         <Phone className="w-4 h-4" />
                         Call Now: +91 7075 232499
                       </a>
                       <a 
                         href="https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20Urban%20Invisible%20Grills%20services.%20Please%20share%20more%20details%20about%20your%20invisible%20grills%20and%20safety%20solutions."
+                        data-track="true"
+                        data-track-type="whatsapp"
+                        data-track-url="https://wa.me/917075232499"
                         onClick={handleDrawerClose}
                         target="_blank"
                         rel="noopener noreferrer"

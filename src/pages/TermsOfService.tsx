@@ -14,6 +14,7 @@ const TermsOfService = () => {
           name="keywords"
           content="terms of service, terms and conditions, service agreement, usage policy, legal terms"
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://urbansafetygrills.in/terms-of-service" />
         <meta property="og:title" content="Terms of Service | Urban Invisible Grills" />
         <meta property="og:description" content="Terms of Service for Urban Invisible Grills. Read our terms and conditions." />

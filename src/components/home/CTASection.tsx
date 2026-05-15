@@ -41,7 +41,10 @@ const CTASection = () => {
               </Link>
             </motion.div>
             <motion.a 
-              href="tel:+917075232499" 
+              href="tel:+917075232499"
+              data-track="true"
+              data-track-type="call"
+              data-track-url="tel:+917075232499"
               className="btn-hero-outline border-primary-foreground/30 bg-white text-navy"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -51,6 +54,9 @@ const CTASection = () => {
             </motion.a>
             <motion.a
               href="https://wa.me/917075232499"
+              data-track="true"
+              data-track-type="whatsapp"
+              data-track-url="https://wa.me/917075232499"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-hero-outline border-primary-foreground/30"
