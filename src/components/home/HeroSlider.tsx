@@ -1,7 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import heroBalcony from "@/assets/hero-balcony.jpg";
-import serviceBalconyGrills from "@/assets/service-balcony-grills.jpg";
 import serviceBalconyGrills2 from "@/assets/service-balcony-grills-2.jpg";
 import serviceWindowGrills2 from "@/assets/service-window-grills-2.jpg";
 import serviceHanger from "@/assets/service-hanger.jpg";
@@ -33,13 +32,36 @@ const slides = [
   },
 ];
 
+// Preload critical images
+const preloadImage = (src: string) => {
+  if (typeof window !== "undefined") {
+    const img = new Image();
+    img.src = src;
+  }
+};
+
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const preloadedRef = useRef(false);
 
   const minSwipeDistance = 50;
+  
+  // Preload images on mount
+  useEffect(() => {
+    if (!preloadedRef.current) {
+      preloadedRef.current = true;
+      // Preload first image immediately (LCP element)
+      preloadImage(slides[0].image);
+      // Preload next image after 2s
+      const timeout = setTimeout(() => {
+        preloadImage(slides[1].image);
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, []);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -107,10 +129,10 @@ const HeroSlider = () => {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
           className="absolute inset-0"
         >
           <div
@@ -121,8 +143,8 @@ const HeroSlider = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* 3D Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* 3D Floating Elements - Reduced for mobile performance */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         <div className="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-20 left-20 w-48 h-48 bg-sky/10 rounded-full blur-2xl animate-float" style={{ animationDelay: "2s" }} />
       </div>
@@ -133,16 +155,16 @@ const HeroSlider = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.5 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
               <motion.span
                 className="inline-block px-4 py-2 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full text-sm font-medium mb-6"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.2 }}
               >
                 <svg 
                   className="inline-block w-5 h-5 mr-2 text-primary" 

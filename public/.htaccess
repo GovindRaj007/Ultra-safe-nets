@@ -7,6 +7,13 @@
 # =====================================================================
 # CORE URL REWRITING - SPA ROUTING
 # =====================================================================
+# Flag the Google Ads landing pages before the SPA rewrite runs, so the
+# noindex header further down can target them. SetEnvIf is evaluated against
+# the original request URI, so it still matches after the rewrite to index.html.
+<IfModule mod_setenvif.c>
+    SetEnvIf Request_URI "^/invisible-grills-(vijayawada-guntur|rajahmundry|visakhapatnam)/?$" ADS_LANDING_PAGE=1
+</IfModule>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
@@ -58,6 +65,19 @@
     
     # Allow search engines to index
     Header set X-Robots-Tag "index, follow"
+
+    # ---------------------------------------------------------------
+    # Google Search Ads landing pages: noindex, follow
+    # These three URLs are ad destinations only, not website pages. This
+    # overrides the site-wide "index, follow" header above for them, and is
+    # the authoritative signal (it works even before the SPA's JS runs).
+    # The REDIRECT_ variant is needed because the SPA rewrite to index.html
+    # is an internal redirect, which re-prefixes environment variables.
+    # They stay crawlable in robots.txt on purpose - a blocked page can never
+    # have its noindex read, and AdsBot must be able to fetch them.
+    # ---------------------------------------------------------------
+    Header set X-Robots-Tag "noindex, follow" env=ADS_LANDING_PAGE
+    Header set X-Robots-Tag "noindex, follow" env=REDIRECT_ADS_LANDING_PAGE
 </IfModule>
 
 # =====================================================================

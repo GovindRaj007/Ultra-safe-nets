@@ -322,3 +322,77 @@ html, body {
   background: linear-gradient(135deg, hsl(215 50% 15%) 0%, hsl(220 45% 18%) 50%, hsl(213 55% 12%) 100%);
   @apply border border-white/10 backdrop-blur-sm;
 }
+
+/* ==========================================================================
+   Google Ads Landing Page — Hero Theme
+   Builds on the existing navy / sky / accent tokens with richer gradients.
+   ========================================================================== */
+
+.ads-hero-overlay {
+  background:
+    linear-gradient(100deg, hsl(215 55% 7% / 0.96) 0%, hsl(215 52% 10% / 0.88) 38%, hsl(213 60% 14% / 0.62) 66%, hsl(199 70% 22% / 0.35) 100%);
+}
+
+.ads-hero-overlay-bottom {
+  background: linear-gradient(to top, hsl(215 55% 7%) 0%, hsl(215 55% 7% / 0.35) 28%, transparent 60%);
+}
+
+.ads-hero-glow {
+  background:
+    radial-gradient(58% 52% at 82% 18%, hsl(199 89% 48% / 0.28) 0%, transparent 70%),
+    radial-gradient(48% 45% at 8% 92%, hsl(152 69% 40% / 0.22) 0%, transparent 72%);
+}
+
+.ads-gradient-text {
+  background: linear-gradient(105deg, hsl(199 89% 70%) 0%, hsl(199 95% 58%) 45%, hsl(152 69% 55%) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.ads-chip {
+  background: linear-gradient(135deg, hsl(0 0% 100% / 0.14) 0%, hsl(0 0% 100% / 0.05) 100%);
+  border: 1px solid hsl(0 0% 100% / 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.ads-chip-accent {
+  background: linear-gradient(135deg, hsl(199 89% 48% / 0.22) 0%, hsl(213 94% 40% / 0.12) 100%);
+  border: 1px solid hsl(199 89% 60% / 0.32);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.ads-panel {
+  background: linear-gradient(150deg, hsl(215 50% 13% / 0.82) 0%, hsl(215 45% 17% / 0.68) 55%, hsl(213 60% 20% / 0.55) 100%);
+  border: 1px solid hsl(0 0% 100% / 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px -24px hsl(215 60% 4% / 0.8);
+}
+
+.ads-ring-glow {
+  box-shadow: 0 0 0 1px hsl(199 89% 60% / 0.25), 0 18px 45px -18px hsl(199 89% 48% / 0.55);
+}
+
+.ads-coverage-gradient {
+  background:
+    linear-gradient(135deg, hsl(215 55% 9%) 0%, hsl(213 60% 13%) 48%, hsl(199 60% 15%) 100%);
+}
+
+@keyframes adsPulseDot {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(152 69% 50% / 0.7); }
+  70% { box-shadow: 0 0 0 8px hsl(152 69% 50% / 0); }
+}
+
+.ads-pulse-dot {
+  animation: adsPulseDot 2s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ads-pulse-dot {
+    animation: none;
+  }
+}

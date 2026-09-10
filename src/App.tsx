@@ -26,6 +26,11 @@ const Ongole = lazy(() => import("./pages/locations/Ongole"));
 const Rajahmundry = lazy(() => import("./pages/locations/Rajahmundry"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Google Search Ads landing pages (one per targeted location)
+const AdsVijayawadaGuntur = lazy(() => import("./pages/ads/InvisibleGrillsVijayawadaGuntur"));
+const AdsRajahmundry = lazy(() => import("./pages/ads/InvisibleGrillsRajahmundry"));
+const AdsVisakhapatnam = lazy(() => import("./pages/ads/InvisibleGrillsVisakhapatnam"));
+
 const queryClient = new QueryClient();
 
 // Loading fallback component
@@ -63,6 +68,12 @@ const App = () => {
               <Route path="/locations/tirupati" element={<Tirupati />} />
               <Route path="/locations/ongole" element={<Ongole />} />
               <Route path="/locations/rajahmundry" element={<Rajahmundry />} />
+
+              {/* Google Search Ads landing pages */}
+              <Route path="/invisible-grills-vijayawada-guntur" element={<AdsVijayawadaGuntur />} />
+              <Route path="/invisible-grills-rajahmundry" element={<AdsRajahmundry />} />
+              <Route path="/invisible-grills-visakhapatnam" element={<AdsVisakhapatnam />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

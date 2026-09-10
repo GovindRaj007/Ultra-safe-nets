@@ -12,6 +12,29 @@ Disallow: /admin/
 Disallow: /private/
 Crawl-delay: 0
 
+# Google Ads crawlers - these ignore the wildcard (*) block, so they need
+# their own explicit rules. Without this, Google Search Ads landing pages can
+# be disapproved as "Destination not crawlable" and lose landing page quality.
+#
+# NOTE: the ads landing pages below are noindex, follow -
+#   /invisible-grills-vijayawada-guntur
+#   /invisible-grills-rajahmundry
+#   /invisible-grills-visakhapatnam
+# Do NOT add them as Disallow. Blocking them here would stop AdsBot fetching
+# them (ad disapproval) AND stop Googlebot ever reading the noindex directive,
+# which would leave the URLs eligible to appear in search anyway.
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+User-agent: AdsBot-Google-Mobile-Apps
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1

@@ -5,7 +5,7 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://urbansafetygrills.in/</loc>
+    <loc>https://urbansafetygrills.in</loc>
     <lastmod>2026-04-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -97,6 +97,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!--
+    Google Search Ads landing pages are intentionally NOT listed here:
+      /invisible-grills-vijayawada-guntur
+      /invisible-grills-rajahmundry
+      /invisible-grills-visakhapatnam
+    They are noindex, follow (ads destinations only). A sitemap asks Google to
+    index a URL, which would contradict that. They remain fully crawlable via
+    robots.txt so AdsBot can still fetch and score them.
+  -->
 
   <!-- Legal Pages -->
   <url>
