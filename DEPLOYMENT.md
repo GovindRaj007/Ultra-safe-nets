@@ -1,53 +1,69 @@
 # Deploying to Hostinger via GitHub
 
-## How it works
+This is a Vite single-page app. It must be **built** (`npm run build`) into `dist/` before it
+can be served — raw source has no bundled JavaScript. Who runs that build decides which branch
+Hostinger should point at. Pick the option that matches your hPanel screen.
 
-Hostinger's Git integration **clones a repository into `public_html` — it never runs a
-build**. This project is a Vite app, so its source is not servable as-is. The pipeline is:
+| | Option A — Hostinger builds | Option B — GitHub builds |
+|---|---|---|
+| Your hPanel shows | Build command / Output directory fields, build logs | Only Repository, Branch, Directory |
+| Hostinger branch | **`master`** (source) | **`deploy`** (built files) |
+| Builds on | Hostinger | GitHub Actions |
+
+**Deploying `deploy` to a build-enabled panel fails with `package.json file not found`** —
+that branch intentionally holds only compiled output. **Deploying `master` to a clone-only
+panel serves raw source** and shows a blank page. Match the branch to the mode.
+
+---
+
+## Option A — Hostinger builds from source (recommended when your panel builds)
+
+hPanel → **Websites → (your domain) → Deployments / GIT**:
+
+| Field | Value |
+|---|---|
+| Repository | `https://github.com/GovindRaj007/Ultra-safe-nets.git` |
+| Branch | `master` |
+| Install / build command | `npm ci && npm run build` (or just `npm run build` if it installs for you) |
+| Output / publish directory | `dist` |
+| Node version | 18 or newer (20 preferred) |
+
+The repo pins this: `engines.node` in `package.json` and `.nvmrc` both request Node 20, which
+most build platforms honour automatically.
+
+Everything the live site needs is produced into `dist/` by the build, including `.htaccess`,
+`robots.txt`, `sitemap.xml` and `favicon.jpg` — they live in `public/` and Vite copies them.
+
+With this option the `deploy` branch and the GitHub Actions workflow are no longer required for
+publishing. Keep the workflow anyway if you want: it builds on every push to `master` and fails
+loudly if the site is broken, which catches problems before Hostinger tries to deploy them.
+
+---
+
+## Option B — GitHub builds, Hostinger only clones
+
+Use this when hPanel offers no build step.
 
 ```
-push to master  →  GitHub Actions builds (npm ci && npm run build)
-                →  pushes dist/ to the `deploy` branch
+push to master  →  GitHub Actions builds
+                →  force-pushes dist/ to the `deploy` branch
                 →  Hostinger pulls `deploy` into public_html
 ```
 
-- `master` holds the source. `dist/` stays git-ignored there.
-- `deploy` holds **only built files** (index.html, assets/, .htaccess, robots.txt,
-  sitemap.xml, favicon.jpg). It is force-pushed on every build — never commit to it by hand.
-- Workflow: [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
+Workflow: [.github/workflows/deploy.yml](.github/workflows/deploy.yml)
 
-## One-time setup
-
-### 1. Push this branch
-
-```bash
-git add -A
-git commit -m "Add Hostinger deployment pipeline"
-git push origin master
-```
-
-### 2. Allow Actions to push the deploy branch
+### 1. Allow Actions to push the deploy branch
 
 GitHub repo → **Settings → Actions → General → Workflow permissions** →
-select **Read and write permissions** → Save.
+**Read and write permissions** → Save. Without this the build succeeds but the push 403s.
 
-Without this the build succeeds but the push to `deploy` fails with a 403.
+### 2. Create the deploy branch
 
-### 3. Create the deploy branch
+It runs on every push to `master`, or manually via
+**Actions → Build and publish to Hostinger → Run workflow**. Confirm the `deploy` branch has
+`index.html` and `.htaccess` at its root.
 
-The workflow runs automatically on push to `master`. To run it manually:
-repo → **Actions → Build and publish to Hostinger → Run workflow**.
-
-Confirm a `deploy` branch now exists and contains `index.html` and `.htaccess` at its root.
-
-### 4. Empty public_html
-
-Hostinger refuses to set up Git into a non-empty directory. In hPanel **File Manager**,
-download a backup of the current `public_html`, then delete its contents.
-
-### 5. Connect Hostinger to the repository
-
-hPanel → **Websites → (your domain) → Advanced → GIT → Create new repository**:
+### 3. Connect Hostinger
 
 | Field | Value |
 |---|---|
@@ -55,27 +71,24 @@ hPanel → **Websites → (your domain) → Advanced → GIT → Create new repo
 | Branch | `deploy` |
 | Directory | `public_html` |
 
-> The Directory field is a path **relative to your home directory**, not to the web root.
-> Leaving it blank clones into `~/` and leaves `public_html` empty, which makes every page
-> return **403 Forbidden**. If your domain is an addon/secondary domain, the correct path is
-> `domains/<your-domain>/public_html` — check the Website's document root in hPanel.
+> Directory is relative to your **home directory**, not the web root. Blank clones into `~/`
+> and leaves `public_html` empty → **403 Forbidden**. For an addon domain the path is usually
+> `domains/<your-domain>/public_html`; hPanel's Website settings show the real document root.
 
-**If the repository is private:** use the SSH URL `git@github.com:GovindRaj007/Ultra-safe-nets.git`,
-copy the SSH public key Hostinger shows, and add it in GitHub under
-**Settings → Deploy keys → Add deploy key** (read-only access is enough).
+`public_html` must be empty before setup — back it up and clear it first.
 
-### 6. Turn on auto-deployment
+### 4. Auto-deployment
 
-In the same hPanel GIT screen, copy the **webhook URL**. In GitHub:
-**Settings → Webhooks → Add webhook** → paste the URL, Content type `application/json`,
-"Just the push event" → Add.
+Copy the webhook URL from the hPanel GIT screen → GitHub **Settings → Webhooks → Add webhook**
+→ Content type `application/json`, "Just the push event". Without it, press **Deploy** in
+hPanel after each build.
 
-Hostinger then pulls automatically each time Actions updates `deploy`. Without the webhook
-everything still works, you just press **Deploy** in hPanel after each build.
+---
 
 ## Routine deployments
 
-Push to `master`. Nothing else. Watch progress under the repo's **Actions** tab.
+Push to `master`. Under Option A Hostinger builds it; under Option B Actions builds and
+Hostinger pulls.
 
 ## Verify after deploying
 
@@ -95,29 +108,26 @@ curl -I https://urbansafetygrills.in/sitemap.xml
 curl -I https://urbansafetygrills.in/.git/config
 ```
 
-A deep route returning 404 means `.htaccess` did not reach the server, or the host has
-`AllowOverride` disabled. The `.git` check matters because Hostinger clones the repository
-into the web root; `public/.htaccess` blocks `.git` and `.github`.
-
 ## Troubleshooting
+
+### Build fails: `package.json file not found`
+
+Hostinger is building, but you pointed it at `deploy`, which holds only compiled output.
+Switch the branch to `master` and set the output directory to `dist` (Option A).
+
+Do **not** commit `src/` into `deploy` to satisfy the build — Actions force-overwrites that
+branch on every run, so the source would be wiped and the two copies would drift.
 
 ### 403 Forbidden on every page
 
-Apache found no readable `index.html` in the document root. Work through these in order.
+Apache found no readable `index.html` in the document root.
 
-**1. Are the files in the right place?**
-hPanel → **File Manager** → open `public_html`. You should see `index.html`, `assets/`,
-`.htaccess`, `robots.txt`, `sitemap.xml` (enable "show hidden files" to see `.htaccess`).
-
-| What you see | Cause | Fix |
+| What `public_html` contains | Cause | Fix |
 |---|---|---|
-| `public_html` is empty, and those files sit in the **home** folder next to `public_html` | Directory field was left blank | In hPanel GIT, delete the repository entry and re-create it with Directory `public_html`. Then delete the stray files from the home folder. |
-| `public_html` holds `src/`, `package.json`, `vite.config.ts` | Hostinger is pulling `master` instead of the built branch | Re-create the repository entry with Branch `deploy`. Source is not servable — it has no bundled JS. |
-| `public_html` is empty and nothing was cloned anywhere | The pull never ran, or failed on a private repo | Press **Deploy** in hPanel and read the error. For a private repo add Hostinger's SSH key as a GitHub deploy key and use the SSH URL. |
-| The correct files **are** in `public_html` | Permissions | See step 2. |
-
-**2. Permissions.** Apache needs directories `755` and files `644`. In File Manager check
-`index.html`'s permissions, or over SSH:
+| Empty, files sit in the **home** folder beside it | Directory left blank | Re-create the repo entry with Directory `public_html`, then delete the stray files |
+| `src/`, `package.json`, `vite.config.ts` | Serving raw source | Option A: set output directory `dist`. Option B: switch branch to `deploy` |
+| Empty, nothing cloned anywhere | Pull never ran, or private-repo auth failed | Press **Deploy** and read the error; for a private repo add Hostinger's SSH key as a GitHub deploy key |
+| The correct files | Permissions | Directories `755`, files `644` |
 
 ```bash
 cd ~/public_html
@@ -125,18 +135,25 @@ find . -type d -exec chmod 755 {} \;
 find . -type f -exec chmod 644 {} \;
 ```
 
-**3. Wrong document root.** If the site is an addon domain, hPanel's Website settings show its
-real document root (often `domains/<domain>/public_html`). The Git Directory must match it.
-
-**4. Only then suspect `.htaccess`.** Temporarily rename it to `.htaccess.off` and reload. If
-the 403 disappears, the host likely disallows a directive — restore it and remove rules in
-halves to find which. Note that the site **needs** `.htaccess` for routing, so this is only a
-diagnostic step, never a fix.
+Suspect `.htaccess` only after the above. It denies `.git`, `.github` and specific filenames —
+it cannot 403 the home page when a readable `index.html` exists.
 
 ### Home page works but other routes 404
 
-`.htaccess` is missing from the web root, or the host has `AllowOverride None`. The file is a
-dotfile, so file managers hide it by default — turn on hidden files before concluding it's absent.
+`.htaccess` is missing from the web root, or the host has `AllowOverride None`. It is a
+dotfile, so file managers hide it by default — enable hidden files before concluding it's gone.
+
+### Build runs out of memory
+
+Vite minifies with terser, which is memory hungry. Locally, close other applications or run
+Vite directly to avoid the extra npm process:
+
+```bash
+node node_modules/vite/bin/vite.js build
+```
+
+If it happens on Hostinger, switch `build.minify` in `vite.config.ts` from `"terser"` to
+`"esbuild"` — much lighter, slightly larger output.
 
 ## Environment variables
 
@@ -147,8 +164,8 @@ ID (`GTM-PPSPSLT2`) is hardcoded in `index.html`.
 If you add one later:
 
 1. Name it with a `VITE_` prefix, or Vite will not expose it to the browser.
-2. Add it in GitHub under **Settings → Secrets and variables → Actions**.
-3. Pass it to the build step in `deploy.yml`:
+2. Option A: add it in hPanel's environment-variables section. Option B: add it in GitHub under
+   **Settings → Secrets and variables → Actions** and pass it to the build step:
    ```yaml
    - name: Build
      run: npm run build
@@ -156,13 +173,10 @@ If you add one later:
        VITE_SOMETHING: ${{ secrets.VITE_SOMETHING }}
    ```
 
-Remember that `VITE_` values are **compiled into the public JavaScript bundle**. Never put an
-API key, password or other secret in one. `.env` files are git-ignored, so real values never
-reach the repository.
+`VITE_` values are **compiled into the public JavaScript bundle**. Never put an API key or
+password in one. `.env` files are git-ignored, so real values never reach the repository.
 
 ## Manual fallback
-
-If Actions or the webhook is unavailable:
 
 ```bash
 npm run build
@@ -170,10 +184,3 @@ npm run build
 ```
 
 Most file managers hide dotfiles — if `.htaccess` is missed, every route except `/` 404s.
-
-If `npm run build` crashes with a Node stack trace (exit 134), the machine is out of memory.
-Close Chrome tabs, or run Vite directly, which avoids the extra npm process:
-
-```bash
-node node_modules/vite/bin/vite.js build
-```
