@@ -12,6 +12,18 @@ dist
 dist-ssr
 *.local
 
+# Environment files - never commit real credentials or keys.
+# .env.example is the documented template and stays tracked.
+.env
+.env.*
+!.env.example
+
+# Build artefacts
+*.tsbuildinfo
+
+# Local archives / backups (node_modules.zip is ~59 MB)
+*.zip
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

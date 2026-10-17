@@ -1,0 +1,71 @@
+name: Build and publish to Hostinger
+
+# Hostinger's Git integration only clones a repository into public_html - it
+# never runs a build. This workflow builds the Vite site and pushes the
+# contents of dist/ to the `deploy` branch, which is the branch Hostinger is
+# configured to pull. Source stays on `master`; `deploy` holds only built files.
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: hostinger-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # A missing .htaccess silently breaks every route except "/", and a
+      # missing robots.txt breaks the Google Ads crawler rules. Fail loudly
+      # here rather than shipping a half-working site.
+      - name: Verify build output
+        run: |
+          set -e
+          for f in dist/index.html dist/.htaccess dist/robots.txt dist/sitemap.xml dist/favicon.jpg; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Missing expected file: $f"
+              exit 1
+            fi
+          done
+          grep -q "RewriteRule \^ index.html" dist/.htaccess \
+            || { echo "::error::SPA rewrite rule missing from dist/.htaccess"; exit 1; }
+          echo "Build output verified:"
+          ls -la dist
+
+      # Published with plain git (not a marketplace action) so that dotfiles -
+      # .htaccess above all - are guaranteed to be included.
+      - name: Publish dist/ to the deploy branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          cd dist
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Deploy ${GITHUB_SHA} from ${GITHUB_REF_NAME}"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:deploy
+          echo "Pushed $(git rev-parse --short HEAD) to the deploy branch."

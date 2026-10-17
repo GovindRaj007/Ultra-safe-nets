@@ -18,6 +18,13 @@
     RewriteEngine On
     RewriteBase /
 
+    # Block the .git directory. Hostinger's Git deployment clones the
+    # repository into public_html, so .git exists on the live server and would
+    # otherwise expose config and full source history. FilesMatch rules below
+    # only match file names, so a directory rule is required here.
+    RewriteRule ^\.git(/|$) - [F,L]
+    RewriteRule ^\.github(/|$) - [F,L]
+
     # Force HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
