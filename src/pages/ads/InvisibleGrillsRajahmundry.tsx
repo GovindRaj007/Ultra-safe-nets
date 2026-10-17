@@ -22,8 +22,8 @@ const config: AdsLandingPageConfig = {
   h1Highlight: "Rajahmundry",
   subline:
     "Child-safe, rust-proof SS316 invisible grills for balconies and windows — installed across Rajahmundry and every surrounding area. Free site measurement, fixed written quote, 1-day installation.",
+  socialProof: "5000+ projects completed",
   trustPoints: [
-    "4.9/5 from local customers",
     "Marine-grade SS316 cable",
     "10-year warranty",
   ],

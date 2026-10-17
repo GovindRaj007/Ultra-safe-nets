@@ -1,7 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
-import AdsHeroSlider, { AdsHeroSlide } from "@/components/ads/AdsHeroSlider";
-import AdsCoverageSection from "@/components/ads/AdsCoverageSection";
+import AdsHeroSlider, {
+  AdsHeroSlide,
+  AdsHeroCrossSell,
+  AdsHeroOffer,
+} from "@/components/ads/AdsHeroSlider";
+import AdsCoverageSection, { AdsAreaGroup, AdsCoverageCard } from "@/components/ads/AdsCoverageSection";
 import IntroSection from "@/components/home/IntroSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -27,6 +31,14 @@ export interface AdsLandingPageConfig {
   /** Latitude / longitude of the primary city, for local schema */
   geo: { latitude: number; longitude: number };
 
+  /* ---- Service (defaults to invisible grills) ---- */
+  /** Service named in headings and schema, e.g. "Ceiling Cloth Hangers" */
+  serviceName?: string;
+  /** schema.org serviceType, e.g. "Ceiling Cloth Hanger Installation" */
+  serviceType?: string;
+  /** Items listed in the schema OfferCatalog */
+  offerItems?: string[];
+
   /* ---- SEO ---- */
   metaTitle: string;
   metaDescription: string;
@@ -38,18 +50,32 @@ export interface AdsLandingPageConfig {
   h1Highlight: string;
   subline: string;
   slides: AdsHeroSlide[];
+  /** Social proof shown first with a gold star, e.g. "5000+ projects completed" */
+  socialProof?: string;
   trustPoints: string[];
   whatsappText: string;
+  whatsappLabel?: string;
+  offer?: AdsHeroOffer;
+  crossSell?: AdsHeroCrossSell;
 
   /* ---- Local relevance ---- */
   coverageIntro: string;
-  areas: string[];
+  coverageCards?: AdsCoverageCard[];
+  areas?: string[];
+  areaGroups?: AdsAreaGroup[];
   surroundingAreas: string[];
   faqs: { question: string; answer: string }[];
 }
 
 const AdsLandingPage = ({ config }: { config: AdsLandingPageConfig }) => {
   const pageUrl = `${SITE_URL}/${config.slug}`;
+  const serviceName = config.serviceName ?? "Invisible Grills";
+  const offerItems = config.offerItems ?? [
+    `Balcony Invisible Grills in ${config.primaryCity}`,
+    `Window Invisible Grills in ${config.primaryCity}`,
+    `Invisible Grills for Apartments in ${config.primaryCity}`,
+    `Ceiling Cloth Hanger in ${config.primaryCity}`,
+  ];
 
   // Remove index.html's hardcoded "index, follow" robots tags and its homepage
   // canonical for as long as this ads-only route is mounted.
@@ -59,6 +85,9 @@ const AdsLandingPage = ({ config }: { config: AdsLandingPageConfig }) => {
     "@context": "https://schema.org",
     "@graph": [
       {
+        // No aggregateRating: only mark up ratings that are published and
+        // verifiable on the site. Unbacked ratings breach Google's review
+        // snippet guidelines and Google Ads misrepresentation policy.
         "@type": "LocalBusiness",
         "@id": `${pageUrl}#business`,
         name: `Urban Invisible Grills - ${config.cityLabel}`,
@@ -93,17 +122,12 @@ const AdsLandingPage = ({ config }: { config: AdsLandingPageConfig }) => {
           "@type": "City",
           name: city,
         })),
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "127",
-        },
       },
       {
         "@type": "Service",
         "@id": `${pageUrl}#service`,
-        serviceType: "Invisible Grills Installation",
-        name: `Invisible Grills in ${config.cityLabel}`,
+        serviceType: config.serviceType ?? "Invisible Grills Installation",
+        name: `${serviceName} in ${config.cityLabel}`,
         description: config.coverageIntro,
         provider: { "@id": `${pageUrl}#business` },
         areaServed: config.targetCities.map((city) => ({
@@ -112,13 +136,8 @@ const AdsLandingPage = ({ config }: { config: AdsLandingPageConfig }) => {
         })),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: `Invisible Grills Services in ${config.cityLabel}`,
-          itemListElement: [
-            `Balcony Invisible Grills in ${config.primaryCity}`,
-            `Window Invisible Grills in ${config.primaryCity}`,
-            `Invisible Grills for Apartments in ${config.primaryCity}`,
-            `Ceiling Cloth Hanger in ${config.primaryCity}`,
-          ].map((name) => ({
+          name: `${serviceName} Services in ${config.cityLabel}`,
+          itemListElement: offerItems.map((name) => ({
             "@type": "Offer",
             itemOffered: { "@type": "Service", name },
           })),
@@ -180,14 +199,21 @@ const AdsLandingPage = ({ config }: { config: AdsLandingPageConfig }) => {
           h1Highlight={config.h1Highlight}
           subline={config.subline}
           slides={config.slides}
+          socialProof={config.socialProof}
           trustPoints={config.trustPoints}
           whatsappText={config.whatsappText}
+          whatsappLabel={config.whatsappLabel}
+          offer={config.offer}
+          crossSell={config.crossSell}
         />
         <AdsCoverageSection
           cityLabel={config.cityLabel}
           primaryCity={config.primaryCity}
+          serviceName={serviceName}
           intro={config.coverageIntro}
+          cards={config.coverageCards}
           areas={config.areas}
+          areaGroups={config.areaGroups}
           surroundingAreas={config.surroundingAreas}
         />
         <IntroSection />
@@ -196,8 +222,8 @@ const AdsLandingPage = ({ config }: { config: AdsLandingPageConfig }) => {
         <LocationsSection />
         <TestimonialsSection />
         <FAQSection
-          title={`Invisible Grills in ${config.cityLabel} — FAQs`}
-          subtitle={`Common questions from customers booking invisible grills in ${config.primaryCity} and nearby areas.`}
+          title={`${serviceName} in ${config.cityLabel} — FAQs`}
+          subtitle={`Common questions from customers booking ${serviceName.toLowerCase()} in ${config.primaryCity} and nearby areas.`}
           faqs={config.faqs}
         />
         <CTASection />

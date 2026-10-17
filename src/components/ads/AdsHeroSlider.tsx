@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Phone,
@@ -8,12 +9,14 @@ import {
   ChevronLeft,
   ChevronRight,
   Check,
+  ArrowRight,
+  Tag,
 } from "lucide-react";
 
 export interface AdsHeroSlide {
-  /** Imported invisible grills image from src/assets */
+  /** Imported service image from src/assets */
   image: string;
-  /** Keyword-bearing alt text, e.g. "Invisible grills in Vijayawada balcony" */
+  /** Keyword-bearing alt text that truthfully describes the photo */
   imageAlt: string;
   /** Tiny uppercase label above the rotating headline */
   eyebrow: string;
@@ -21,6 +24,28 @@ export interface AdsHeroSlide {
   headline: string;
   /** Four short, highlighted feature points - no long descriptions */
   highlights: string[];
+}
+
+/** A second service promoted inside the hero, e.g. invisible grills on a hanger page */
+export interface AdsHeroCrossSell {
+  image: string;
+  imageAlt: string;
+  /** Small label, e.g. "We also install" */
+  label: string;
+  title: string;
+  /** Up to three very short points */
+  points: string[];
+  /** Internal route to the service page */
+  to: string;
+  ctaLabel: string;
+}
+
+/** A live promotion shown as a pill beside the location badge */
+export interface AdsHeroOffer {
+  /** e.g. "₹500 OFF" */
+  amount: string;
+  /** What the offer applies to, e.g. "on ceiling cloth hangers" */
+  text: string;
 }
 
 export interface AdsHeroSliderProps {
@@ -32,18 +57,28 @@ export interface AdsHeroSliderProps {
   h1Highlight: string;
   /** One short supporting line under the H1 (static, keyword-rich) */
   subline: string;
-  /** Three invisible grills slides */
+  /** Three service slides */
   slides: AdsHeroSlide[];
-  /** Short trust proof points shown under the CTAs */
+  /** Social proof shown first with a gold star, e.g. "5000+ projects completed" */
+  socialProof?: string;
+  /** Short trust proof points shown under the CTAs, each with a check icon */
   trustPoints: string[];
   /** Pre-filled WhatsApp enquiry text (already URL-encoded) */
   whatsappText: string;
+  /** WhatsApp button label; defaults to "WhatsApp for Free Site Visit" */
+  whatsappLabel?: string;
+  /** Optional live promotion - only pass offers the business currently honours */
+  offer?: AdsHeroOffer;
+  /** Optional second service card shown under the feature tiles */
+  crossSell?: AdsHeroCrossSell;
 }
 
 const PHONE_DISPLAY = "+91 7075 232499";
 const PHONE_TEL = "+917075232499";
 const WA_NUMBER = "917075232499";
 const AUTOPLAY_MS = 6000;
+/** Beyond this length the H1 steps down a size so it stays within ~3 lines */
+const LONG_H1_CHARS = 45;
 
 const imageVariants = {
   enter: (direction: number) => ({
@@ -63,8 +98,12 @@ const AdsHeroSlider = ({
   h1Highlight,
   subline,
   slides,
+  socialProof,
   trustPoints,
   whatsappText,
+  whatsappLabel = "WhatsApp for Free Site Visit",
+  offer,
+  crossSell,
 }: AdsHeroSliderProps) => {
   const [[current, direction], setSlide] = useState<[number, number]>([0, 1]);
   const [isPaused, setIsPaused] = useState(false);
@@ -122,6 +161,7 @@ const AdsHeroSlider = ({
 
   const slide = slides[current];
   const whatsappHref = `https://wa.me/${WA_NUMBER}?text=${whatsappText}`;
+  const isLongH1 = `${h1Lead} ${h1Highlight}`.length > LONG_H1_CHARS;
 
   return (
     <section
@@ -179,25 +219,44 @@ const AdsHeroSlider = ({
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left: identity, H1, CTAs (stable across slides) */}
           <div className="lg:col-span-7 text-primary-foreground">
-            <motion.span
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold ads-chip-accent"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="ads-pulse-dot absolute inline-flex h-2 w-2 rounded-full bg-accent" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-              </span>
-              <MapPin className="w-4 h-4 text-sky-light" />
-              {badge}
-            </motion.span>
+            <div className="flex flex-wrap items-center gap-2">
+              <motion.span
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold ads-chip-accent"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="ads-pulse-dot absolute inline-flex h-2 w-2 rounded-full bg-accent" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                </span>
+                <MapPin className="w-4 h-4 text-sky-light" />
+                {badge}
+              </motion.span>
+
+              {offer && (
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.15 }}
+                  className="ads-offer-pill inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs sm:text-sm"
+                >
+                  <Tag className="w-4 h-4" />
+                  <strong className="font-extrabold">{offer.amount}</strong>
+                  <span className="font-semibold">{offer.text}</span>
+                </motion.span>
+              )}
+            </div>
 
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.05 }}
-              className="font-heading text-[2rem] leading-[1.12] sm:text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold mt-5 mb-4"
+              className={`font-heading leading-[1.12] font-extrabold mt-5 mb-4 ${
+                isLongH1
+                  ? "text-[1.75rem] sm:text-4xl md:text-[2.6rem] lg:text-[2.9rem]"
+                  : "text-[2rem] sm:text-4xl md:text-5xl lg:text-[3.4rem]"
+              }`}
             >
               {h1Lead} <span className="ads-gradient-text">{h1Highlight}</span>
             </motion.h1>
@@ -257,26 +316,28 @@ const AdsHeroSlider = ({
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                WhatsApp for Free Site Visit
+                {whatsappLabel}
               </motion.a>
             </div>
 
             {/* Trust strip */}
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-7 text-xs sm:text-sm text-primary-foreground/75">
-              {trustPoints.map((point, i) => (
+              {socialProof && (
+                <span className="inline-flex items-center gap-1.5">
+                  <Star className="w-4 h-4 text-gold fill-gold" />
+                  {socialProof}
+                </span>
+              )}
+              {trustPoints.map((point) => (
                 <span key={point} className="inline-flex items-center gap-1.5">
-                  {i === 0 ? (
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                  ) : (
-                    <ShieldCheck className="w-4 h-4 text-accent" />
-                  )}
+                  <ShieldCheck className="w-4 h-4 text-accent" />
                   {point}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Right: per-slide highlighted feature tiles */}
+          {/* Right: per-slide highlighted feature tiles (+ optional cross-sell) */}
           <div className="lg:col-span-5">
             <AnimatePresence mode="wait">
               <motion.div
@@ -310,6 +371,53 @@ const AdsHeroSlider = ({
                 </ul>
               </motion.div>
             </AnimatePresence>
+
+            {crossSell && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="mt-4"
+              >
+                <Link
+                  to={crossSell.to}
+                  className="group ads-panel ads-crosssell rounded-3xl p-3 sm:p-4 flex items-center gap-4 transition-colors"
+                >
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 overflow-hidden rounded-2xl">
+                    <img
+                      src={crossSell.image}
+                      alt={crossSell.imageAlt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <span className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-accent mb-1">
+                      {crossSell.label}
+                    </p>
+                    <h3 className="font-heading text-base sm:text-lg font-bold text-white leading-tight mb-2">
+                      {crossSell.title}
+                    </h3>
+                    <ul className="flex flex-wrap gap-1.5 mb-2">
+                      {crossSell.points.map((point) => (
+                        <li
+                          key={point}
+                          className="ads-chip rounded-full px-2.5 py-0.5 text-[0.7rem] text-white/90"
+                        >
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                    <span className="inline-flex items-center gap-1 text-sky-light text-xs sm:text-sm font-semibold">
+                      {crossSell.ctaLabel}
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            )}
           </div>
         </div>
       </div>

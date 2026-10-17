@@ -30,6 +30,9 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const AdsVijayawadaGuntur = lazy(() => import("./pages/ads/InvisibleGrillsVijayawadaGuntur"));
 const AdsRajahmundry = lazy(() => import("./pages/ads/InvisibleGrillsRajahmundry"));
 const AdsVisakhapatnam = lazy(() => import("./pages/ads/InvisibleGrillsVisakhapatnam"));
+const AdsCeilingClothHangers = lazy(
+  () => import("./pages/ads/CeilingClothHangersVijayawadaGunturRajahmundry")
+);
 
 const queryClient = new QueryClient();
 
@@ -73,6 +76,10 @@ const App = () => {
               <Route path="/invisible-grills-vijayawada-guntur" element={<AdsVijayawadaGuntur />} />
               <Route path="/invisible-grills-rajahmundry" element={<AdsRajahmundry />} />
               <Route path="/invisible-grills-visakhapatnam" element={<AdsVisakhapatnam />} />
+              <Route
+                path="/ceiling-cloth-hangers-vijayawada-guntur-rajahmundry"
+                element={<AdsCeilingClothHangers />}
+              />
 
               <Route path="*" element={<NotFound />} />
             </Routes>

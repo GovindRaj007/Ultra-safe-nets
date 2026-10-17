@@ -30,7 +30,7 @@ const services = [
   },
   {
     title: "Ceiling Cloth Hanger",
-    description: "Space-saving ceiling-mounted clothes drying hangers with pulley system. Rust-proof stainless steel, perfect for modern apartments with limited space.",
+    description: "Space-saving clothes drying hangers — ceiling-mounted pulley hangers in rust-proof stainless steel, or wall mount hangers where ceiling mounting isn't practical. Perfect for modern apartments.",
     image: serviceHanger2,
     link: "/services/ceiling-cloth-hanger",
     badge: "Space-Saving",

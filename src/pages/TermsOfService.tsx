@@ -133,7 +133,7 @@ const TermsOfService = () => {
               <section>
                 <h2 className="text-2xl font-bold text-navy mt-8 mb-4">11. Governing Law</h2>
                 <p>
-                  These terms and conditions are governed by and construed in accordance with the laws of India, and you irrevocably submit to the exclusive jurisdiction of the courts located in Hyderabad.
+                  These terms and conditions are governed by and construed in accordance with the laws of India, and you irrevocably submit to the exclusive jurisdiction of the courts located in Vijayawada, Andhra Pradesh.
                 </p>
               </section>
 

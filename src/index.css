@@ -396,3 +396,20 @@ html, body {
     animation: none;
   }
 }
+
+/* Cross-sell card inside the ads hero (e.g. invisible grills on a hanger page) */
+.ads-crosssell {
+  border-color: hsl(152 69% 50% / 0.35);
+  box-shadow: 0 0 0 1px hsl(152 69% 50% / 0.12), 0 22px 50px -24px hsl(152 69% 30% / 0.55);
+}
+
+.ads-crosssell:hover {
+  border-color: hsl(152 69% 55% / 0.6);
+}
+
+/* Live-offer pill in the ads hero (gold, from the existing --gold token) */
+.ads-offer-pill {
+  background: linear-gradient(120deg, hsl(43 96% 62%) 0%, hsl(38 95% 54%) 100%);
+  color: hsl(215 50% 12%);
+  box-shadow: 0 10px 30px -12px hsl(43 96% 50% / 0.7);
+}

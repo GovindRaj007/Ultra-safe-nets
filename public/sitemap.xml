@@ -103,6 +103,7 @@
       /invisible-grills-vijayawada-guntur
       /invisible-grills-rajahmundry
       /invisible-grills-visakhapatnam
+      /ceiling-cloth-hangers-vijayawada-guntur-rajahmundry
     They are noindex, follow (ads destinations only). A sitemap asks Google to
     index a URL, which would contradict that. They remain fully crawlable via
     robots.txt so AdsBot can still fetch and score them.

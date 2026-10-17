@@ -22,8 +22,8 @@ const config: AdsLandingPageConfig = {
   h1Highlight: "Visakhapatnam",
   subline:
     "Child-safe, coastal rust-proof SS316 invisible grills for balconies and windows — installed across Vizag and every surrounding area. Free site measurement, fixed written quote, 1-day installation.",
+  socialProof: "5000+ projects completed",
   trustPoints: [
-    "4.9/5 from local customers",
     "Coastal-grade SS316 cable",
     "10-year warranty",
   ],
@@ -53,7 +53,7 @@ const config: AdsLandingPageConfig = {
       highlights: [
         "1-day installation",
         "Fixed written quote",
-        "High-rise certified",
+        "Built for high-rise flats",
         "No damage to tiles",
       ],
     },

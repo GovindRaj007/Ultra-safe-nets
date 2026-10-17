@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
+// Only list customers from cities the business actually serves (Andhra Pradesh).
 const testimonials = [
   {
     name: "Rajesh Kumar",
-    location: "Hyderabad",
+    location: "Vijayawada",
     rating: 5,
     text: "Excellent service! The invisible grills look amazing and my kids are now safe on our balcony. Highly recommend Urban Invisible Grills.",
   },
@@ -17,11 +18,10 @@ const testimonials = [
   },
   {
     name: "Venkat Rao",
-    location: "Warangal",
+    location: "Guntur",
     rating: 5,
     text: "The ceiling cloth hanger has been a game changer for our apartment. Space-saving and very convenient to use. Thank you team!",
   },
-
   {
     name: "Suresh Reddy",
     location: "Rajahmundry",
@@ -29,6 +29,15 @@ const testimonials = [
     text: "Best invisible grill service in Andhra Pradesh. The quality is unmatched and the pricing is very reasonable. Our balcony is now completely child-safe.",
   },
 ];
+
+// The auto-scroll loop resets at the halfway point of a doubled list, which is
+// only seamless if one copy is wider than the container. Repeat short lists so
+// a single copy always holds at least this many cards.
+const MIN_CARDS_PER_COPY = 4;
+const track = Array.from(
+  { length: Math.ceil(MIN_CARDS_PER_COPY / testimonials.length) },
+  () => testimonials
+).flat();
 
 const TestimonialsSection = () => {
   const [isPaused, setIsPaused] = useState(false);
@@ -96,7 +105,7 @@ const TestimonialsSection = () => {
         </motion.div>
 
         {/* Horizontal Sliding Testimonials */}
-        <div 
+        <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-hidden cursor-grab active:cursor-grabbing touch-pan-x"
           onMouseEnter={() => setIsPaused(true)}
@@ -105,8 +114,8 @@ const TestimonialsSection = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Duplicate testimonials for infinite scroll effect */}
-          {[...testimonials, ...testimonials].map((testimonial, index) => (
+          {/* Duplicate the track for infinite scroll effect */}
+          {[...track, ...track].map((testimonial, index) => (
             <motion.div
               key={`${testimonial.name}-${index}`}
               initial={{ opacity: 0, y: 30 }}

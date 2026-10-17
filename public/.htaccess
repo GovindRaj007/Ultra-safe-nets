@@ -11,7 +11,7 @@
 # noindex header further down can target them. SetEnvIf is evaluated against
 # the original request URI, so it still matches after the rewrite to index.html.
 <IfModule mod_setenvif.c>
-    SetEnvIf Request_URI "^/invisible-grills-(vijayawada-guntur|rajahmundry|visakhapatnam)/?$" ADS_LANDING_PAGE=1
+    SetEnvIf Request_URI "^/(invisible-grills-(vijayawada-guntur|rajahmundry|visakhapatnam)|ceiling-cloth-hangers-vijayawada-guntur-rajahmundry)/?$" ADS_LANDING_PAGE=1
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -68,7 +68,7 @@
 
     # ---------------------------------------------------------------
     # Google Search Ads landing pages: noindex, follow
-    # These three URLs are ad destinations only, not website pages. This
+    # These URLs are ad destinations only, not website pages. This
     # overrides the site-wide "index, follow" header above for them, and is
     # the authoritative signal (it works even before the SPA's JS runs).
     # The REDIRECT_ variant is needed because the SPA rewrite to index.html

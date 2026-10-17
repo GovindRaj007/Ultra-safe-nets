@@ -20,6 +20,7 @@ Crawl-delay: 0
 #   /invisible-grills-vijayawada-guntur
 #   /invisible-grills-rajahmundry
 #   /invisible-grills-visakhapatnam
+#   /ceiling-cloth-hangers-vijayawada-guntur-rajahmundry
 # Do NOT add them as Disallow. Blocking them here would stop AdsBot fetching
 # them (ad disapproval) AND stop Googlebot ever reading the noindex directive,
 # which would leave the URLs eligible to appear in search anyway.

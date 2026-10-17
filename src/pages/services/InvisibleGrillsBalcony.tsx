@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CheckCircle, Phone, ArrowRight } from "lucide-react";
@@ -239,9 +240,18 @@ const InvisibleGrillsBalcony = () => {
               the perfect invisible grill solution for your balcony. Serving all of Andhra Pradesh!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="btn-hero bg-background text-foreground">
-                Schedule Free Visit
-              </Link>
+              <a
+                href="https://wa.me/917075232499?text=Hi%2C%20I%27m%20interested%20in%20balcony%20invisible%20grills.%20Please%20share%20a%20free%20quote."
+                data-track="true"
+                data-track-type="whatsapp"
+                data-track-url="https://wa.me/917075232499"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-hero bg-background text-foreground"
+              >
+                <WhatsAppIcon className="w-5 h-5" />
+                WhatsApp Us
+              </a>
               <a 
                 href="tel:+917075232499"
                 data-track="true"
