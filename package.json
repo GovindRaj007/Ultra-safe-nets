@@ -7,9 +7,6 @@
   "author": "",
   "type": "module",
   "main": "eslint.config.js",
-  "engines": {
-    "node": ">=18"
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
