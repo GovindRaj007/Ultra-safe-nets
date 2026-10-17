@@ -53,7 +53,12 @@ hPanel → **Websites → (your domain) → Advanced → GIT → Create new repo
 |---|---|
 | Repository | `https://github.com/GovindRaj007/Ultra-safe-nets.git` |
 | Branch | `deploy` |
-| Directory | *leave blank* (= `public_html`) |
+| Directory | `public_html` |
+
+> The Directory field is a path **relative to your home directory**, not to the web root.
+> Leaving it blank clones into `~/` and leaves `public_html` empty, which makes every page
+> return **403 Forbidden**. If your domain is an addon/secondary domain, the correct path is
+> `domains/<your-domain>/public_html` — check the Website's document root in hPanel.
 
 **If the repository is private:** use the SSH URL `git@github.com:GovindRaj007/Ultra-safe-nets.git`,
 copy the SSH public key Hostinger shows, and add it in GitHub under
@@ -93,6 +98,45 @@ curl -I https://urbansafetygrills.in/.git/config
 A deep route returning 404 means `.htaccess` did not reach the server, or the host has
 `AllowOverride` disabled. The `.git` check matters because Hostinger clones the repository
 into the web root; `public/.htaccess` blocks `.git` and `.github`.
+
+## Troubleshooting
+
+### 403 Forbidden on every page
+
+Apache found no readable `index.html` in the document root. Work through these in order.
+
+**1. Are the files in the right place?**
+hPanel → **File Manager** → open `public_html`. You should see `index.html`, `assets/`,
+`.htaccess`, `robots.txt`, `sitemap.xml` (enable "show hidden files" to see `.htaccess`).
+
+| What you see | Cause | Fix |
+|---|---|---|
+| `public_html` is empty, and those files sit in the **home** folder next to `public_html` | Directory field was left blank | In hPanel GIT, delete the repository entry and re-create it with Directory `public_html`. Then delete the stray files from the home folder. |
+| `public_html` holds `src/`, `package.json`, `vite.config.ts` | Hostinger is pulling `master` instead of the built branch | Re-create the repository entry with Branch `deploy`. Source is not servable — it has no bundled JS. |
+| `public_html` is empty and nothing was cloned anywhere | The pull never ran, or failed on a private repo | Press **Deploy** in hPanel and read the error. For a private repo add Hostinger's SSH key as a GitHub deploy key and use the SSH URL. |
+| The correct files **are** in `public_html` | Permissions | See step 2. |
+
+**2. Permissions.** Apache needs directories `755` and files `644`. In File Manager check
+`index.html`'s permissions, or over SSH:
+
+```bash
+cd ~/public_html
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
+```
+
+**3. Wrong document root.** If the site is an addon domain, hPanel's Website settings show its
+real document root (often `domains/<domain>/public_html`). The Git Directory must match it.
+
+**4. Only then suspect `.htaccess`.** Temporarily rename it to `.htaccess.off` and reload. If
+the 403 disappears, the host likely disallows a directive — restore it and remove rules in
+halves to find which. Note that the site **needs** `.htaccess` for routing, so this is only a
+diagnostic step, never a fix.
+
+### Home page works but other routes 404
+
+`.htaccess` is missing from the web root, or the host has `AllowOverride None`. The file is a
+dotfile, so file managers hide it by default — turn on hidden files before concluding it's absent.
 
 ## Environment variables
 
